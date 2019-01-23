@@ -17,7 +17,6 @@ public class Driver {
 
         JOptionPane.showMessageDialog(null, "Result:" + result.value(10));
 
-
         frame.add(outputPanel);
     }
 }
