@@ -31,7 +31,7 @@ public class Driver {
 
         inputPanel.add(functionInput);
         inputPanel.add(plotButton);
-        inputPanel.setSize(new Dimension(300, 200));
+        inputPanel.setSize(new Dimension(300, 400));
         outputPanel.add(functionPanel);
         layout.add(inputPanel);
         layout.add(outputPanel);
@@ -43,6 +43,7 @@ public class Driver {
         frame.add(layout);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
 
 
