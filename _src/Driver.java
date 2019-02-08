@@ -45,7 +45,6 @@ public class Driver {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
 
-
     }
 }
 

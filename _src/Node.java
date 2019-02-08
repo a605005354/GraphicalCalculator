@@ -27,17 +27,7 @@ public class Node {
     public Node(){
     }
 
-    public Node createNode(double x){
-        //create a leaf node
-        return new Node(x);
-    }
-
-    public Node createNode(){
-        //create a variable leaf
-        return new Node(true);
-    }
-
-    public Node combineNode(Node n1, Node n2, Operator operator){
+    public static Node combineNode(Node n1, Node n2, Operator operator){
         Node node = new Node();
         node.setVariable(false);
         node.setLeaf(false);
@@ -47,7 +37,7 @@ public class Node {
         return node;
     }
 
-    public Node combineNode(Node n1, Operator operator) {
+    public static Node combineNode(Node n1, Operator operator) {
         Node node = new Node();
         node.setVariable(false);
         node.setLeaf(false);
