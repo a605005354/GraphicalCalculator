@@ -7,6 +7,7 @@ public class Parser {
 
     //TODO
     void parse(){
+
         functionTree=new FunctionTree(null);
     }
 
