@@ -106,7 +106,6 @@ public class Driver {
         layout.add(plotButton);
         layout.add(outputPanel, BorderLayout.EAST);
 
-
         //JOptionPane.showMessageDialog(null, "Result:" + result.value(10));
         frame.add(layout);
         frame.pack();
