@@ -10,6 +10,5 @@ public class FunctionTreeUnitTest {
 
         //Tests for unary operators
         Node un1=new Node(30);
-        Node un2=
     }
 }
