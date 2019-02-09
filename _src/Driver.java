@@ -1,24 +1,27 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.beans.ConstructorProperties;
+import java.security.acl.Group;
 
 public class Driver {
     //Temperate class to work as an entry
     public static void main(String[] args) {
         JFrame frame=new JFrame();
+        JPanel LeftSide =  new JPanel(new GridBagLayout());
         JPanel inputPanel=new JPanel();
         JPanel outputPanel=new JPanel();
+        JPanel operatorPanel = new JPanel(new GridBagLayout());
         JPanel functionPanel = new FunctionPanel();
         JPanel layout = new JPanel();
         TextArea functionInput = new TextArea();
-        Button plotButton = new Button("Plot");
-
-        //operator panel
-        JPanel operatorPanel = new JPanel(new BorderLayout());
+        JButton plotButton = new JButton("Plot");
 
         //Operator buttons
         JButton plus = new JButton("+");
@@ -26,21 +29,21 @@ public class Driver {
         JButton multiply = new JButton("*");
         JButton divide = new JButton("/");
 
-        //button attribute
-        plus.setBounds(10,10,10,10);
-        minus.setBounds(10,10,10,10);
-        multiply.setBounds(10,10,10,10);
-        divide.setBounds(10,10,10,10);
-
-        operatorPanel.add(plus);
-        operatorPanel.add(minus);
-        operatorPanel.add(multiply);
-        operatorPanel.add(divide);
-
-        operatorPanel.setSize(new Dimension(300,200));
-        layout.add(operatorPanel);
-
-
+        //GridBag
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(10,10,10,10);
+        c.gridx = 1;
+        c.gridy = 0;
+        operatorPanel.add(plus, c);
+        c.gridx = 2;
+        c.gridy = 0;
+        operatorPanel.add(minus, c);
+        c.gridx = 3;
+        c.gridy = 0;
+        operatorPanel.add(multiply,c);
+        c.gridx = 4;
+        c.gridy = 0;
+        operatorPanel.add(divide,c);
 
         plotButton.addActionListener(new ActionListener() {
             @Override
@@ -56,16 +59,25 @@ public class Driver {
         });
 
         inputPanel.add(functionInput);
-        inputPanel.add(plotButton);
-        inputPanel.setSize(new Dimension(300, 400));
         outputPanel.add(functionPanel);
-        layout.add(inputPanel);
-        layout.add(outputPanel);
 
+
+        //GridBag
+        GridBagConstraints c2 = new GridBagConstraints();
+        c2.insets = new Insets(10,10,10,10);
+        c2.gridx = 0;
+        c2.gridy =30;
+        LeftSide.add(operatorPanel, c2);
+
+        c2.gridx = 0;
+        c2.gridy = 60;
+        LeftSide.add(inputPanel, c2);
+        layout.add(LeftSide, BorderLayout.WEST);
+        layout.add(plotButton);
+        layout.add(outputPanel, BorderLayout.EAST);
 
 
         //JOptionPane.showMessageDialog(null, "Result:" + result.value(10));
-
         frame.add(layout);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
