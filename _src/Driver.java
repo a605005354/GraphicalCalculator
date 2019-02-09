@@ -16,6 +16,8 @@ public class Driver {
         TextArea functionInput = new TextArea();
         Button plotButton = new Button("Plot");
 
+
+
         plotButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,7 +47,6 @@ public class Driver {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
-
 
     }
 }
