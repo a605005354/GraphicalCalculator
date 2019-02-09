@@ -20,30 +20,32 @@ public class Driver {
         JPanel operatorPanel = new JPanel(new GridBagLayout());
         JPanel functionPanel = new FunctionPanel();
         JPanel layout = new JPanel();
-        TextArea functionInput = new TextArea();
+        JTextField functionInput = new JTextField();
+        functionInput.setLayout(new BoxLayout(functionInput, BoxLayout.X_AXIS));
+        functionInput.setPreferredSize(new Dimension(120, 20));
         JButton plotButton = new JButton("Plot");
 
         //Operator buttons
-        JButton plus = new JButton("+");
-        JButton minus = new JButton("-");
-        JButton multiply = new JButton("*");
-        JButton divide = new JButton("/");
+        JButton plusButton = new JButton("+");
+        JButton minusButton = new JButton("-");
+        JButton multiplyButton = new JButton("*");
+        JButton divideButton = new JButton("/");
 
         //GridBag
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(10,10,10,10);
         c.gridx = 1;
         c.gridy = 0;
-        operatorPanel.add(plus, c);
+        operatorPanel.add(plusButton, c);
         c.gridx = 2;
         c.gridy = 0;
-        operatorPanel.add(minus, c);
+        operatorPanel.add(minusButton, c);
         c.gridx = 3;
         c.gridy = 0;
-        operatorPanel.add(multiply,c);
+        operatorPanel.add(multiplyButton,c);
         c.gridx = 4;
         c.gridy = 0;
-        operatorPanel.add(divide,c);
+        operatorPanel.add(divideButton,c);
 
         plotButton.addActionListener(new ActionListener() {
             @Override
@@ -58,9 +60,33 @@ public class Driver {
             }
         });
 
-        inputPanel.add(functionInput);
-        outputPanel.add(functionPanel);
+        plusButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                functionInput.setText(functionInput.getText() + "+");
+            }
+        });
 
+        minusButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                functionInput.setText(functionInput.getText() + "-");
+            }
+        });
+
+        multiplyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                functionInput.setText(functionInput.getText() + "*");
+            }
+        });
+
+        divideButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                functionInput.setText(functionInput.getText() + "/");
+            }
+        });
 
         //GridBag
         GridBagConstraints c2 = new GridBagConstraints();
@@ -71,6 +97,10 @@ public class Driver {
 
         c2.gridx = 0;
         c2.gridy = 60;
+
+        inputPanel.add(functionInput);
+        outputPanel.add(functionPanel);
+
         LeftSide.add(inputPanel, c2);
         layout.add(LeftSide, BorderLayout.WEST);
         layout.add(plotButton);
