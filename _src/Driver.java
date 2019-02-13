@@ -61,8 +61,8 @@ public class Driver {
 
 
         //ComboBox Info
-        String [] leftside = {"[","{"};
-        String [] rightside = {"]","}"};
+        String [] leftside = {"[","("};
+        String [] rightside = {"]",")"};
         JComboBox leftBracket = new JComboBox(leftside);
         leftBracket.setSelectedIndex(0);
         leftBracket.addActionListener(new ActionListener() {
