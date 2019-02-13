@@ -13,27 +13,43 @@ import java.security.acl.Group;
 public class Driver {
     //Temperate class to work as an entry
     public static void main(String[] args) {
-        JFrame frame=new JFrame();
+        JFrame mainFrame=new JFrame();
 
         //ALL panel
+        //Leftside = GroupInput + operatorPanel
         JPanel LeftSide =  new JPanel(new GridBagLayout());
-        JPanel inputPanel=new JPanel();
-        JPanel outputPanel=new JPanel();
+        //contains all operators
         JPanel operatorPanel = new JPanel(new GridBagLayout());
+        //one inputPanel = one textArea + three buttons (color, piecewise, clean)
+        JPanel inputPanel=new JPanel(new GridBagLayout());
+        JPanel inputPanel2= new JPanel((new GridBagLayout()));
+        //container for all inputPanels; include two buttons (+/-)
+        JScrollPane GroupInput = new JScrollPane();
+        GroupInput.setPreferredSize(new Dimension(400,200));
+        Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 5);
+        GroupInput.setBorder(border);
+        GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        //rightmost
+        JPanel outputPanel=new JPanel();
         JPanel functionPanel = new FunctionPanel();
-        JPanel domainPanel = new FunctionPanel();
+        JPanel domainPanel = new JPanel();
         JPanel layout = new JPanel();
         JPanel xrangePanel = new JPanel(new GridBagLayout());
 
         //Input area
-        JTextField functionInput = new JTextField();
-        functionInput.setLayout(new BoxLayout(functionInput, BoxLayout.X_AXIS));
-        functionInput.setPreferredSize(new Dimension(120, 20));
+        JTextField inputDialog = new JTextField();
+        JTextField inputDialog2 = new JTextField();
+        inputDialog2.setLayout(new BoxLayout(inputDialog2, BoxLayout.X_AXIS));
+        inputDialog2.setPreferredSize(new Dimension(120, 20));
+
+        inputDialog.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
+        inputDialog.setPreferredSize(new Dimension(120, 20));
         JTextField domainLeftIn = new JTextField();
-        domainLeftIn.setLayout(new BoxLayout(functionInput, BoxLayout.X_AXIS));
+        domainLeftIn.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
         domainLeftIn.setPreferredSize(new Dimension(120, 20));
         JTextField domainRightIn = new JTextField();
-        domainRightIn.setLayout(new BoxLayout(functionInput, BoxLayout.X_AXIS));
+        domainRightIn.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
         domainRightIn.setPreferredSize(new Dimension(120, 20));
         JButton plotButton = new JButton("Plot");
 
@@ -136,7 +152,7 @@ public class Driver {
         plotButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String input = functionInput.getText();
+                String input = inputDialog.getText();
                 Parser parser=new Parser(input);
                 parser.parse();
                 FunctionTree result=parser.getFunctionTree();
@@ -149,65 +165,72 @@ public class Driver {
         plusButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "+");
+                inputDialog.setText(inputDialog.getText() + "+");
             }
         });
 
         minusButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "-");
+                inputDialog.setText(inputDialog.getText() + "-");
             }
         });
 
         multiplyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "*");
+                inputDialog.setText(inputDialog.getText() + "*");
             }
         });
 
         divideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "/");
+                inputDialog.setText(inputDialog.getText() + "/");
             }
         });
 
         sinButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "sin()");
+                inputDialog.setText(inputDialog.getText() + "sin()");
             }
         });
 
         cosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "cos()");
+                inputDialog.setText(inputDialog.getText() + "cos()");
             }
         });
 
         tanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "tan()");
+                inputDialog.setText(inputDialog.getText() + "tan()");
             }
         });
 
         piButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "π");
+                inputDialog.setText(inputDialog.getText() + "π");
             }
         });
 
         eButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                functionInput.setText(functionInput.getText() + "e");
+                inputDialog.setText(inputDialog.getText() + "e");
             }
         });
+
+        //construct inputPanel
+        inputPanel.add(inputlabel);
+        inputPanel.add(inputDialog);
+        inputPanel.add(inputDialog2);
+
+        GroupInput.setViewportView(inputPanel);
 
         //GridBag
         GridBagConstraints c2 = new GridBagConstraints();
@@ -216,11 +239,10 @@ public class Driver {
         c2.gridy =20;
         LeftSide.add(operatorPanel, c2);
 
+
         c2.gridx = 0;
         c2.gridy = 30;
-        inputPanel.add(inputlabel);
-        inputPanel.add(functionInput);
-        LeftSide.add(inputPanel, c2);
+        LeftSide.add(GroupInput, c2);
 
         c2.gridx = 0;
         c2.gridy =35;
@@ -240,11 +262,11 @@ public class Driver {
         layout.add(outputPanel, BorderLayout.EAST);
 
         //JOptionPane.showMessageDialog(null, "Result:" + result.value(10));
-        frame.add(layout);
-        frame.pack();
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setVisible(true);
+        mainFrame.add(layout);
+        mainFrame.pack();
+        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        mainFrame.setVisible(true);
 
     }
 }

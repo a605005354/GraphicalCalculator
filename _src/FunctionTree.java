@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 
 public class FunctionTree {
     private Node root;
+    ArrayList<ArrayList<String>> nodes;     //for print use only
 
     public FunctionTree(Node node){
         root=node;
+        nodes=new ArrayList<>();
     }
 
     public double value(double x){
@@ -81,6 +84,51 @@ public class FunctionTree {
 
     public void setRoot(Node root) {
         this.root = root;
+    }
+
+    public void print(){
+
+        fillOutTreePrint(nodes,0);
+        for (ArrayList<String> e: nodes) {
+            String stage = "";
+            for (String s: e) {
+                stage += s;
+                stage += "\t";
+            }
+            System.out.println(stage);
+        }
+    }
+
+    //for print use only
+    private void fillOutTreePrint(ArrayList<ArrayList<String>> nodes, int lvl){
+        if(nodes.size()< lvl){
+            System.out.println("ERROR:Fault in FunctionTree.print()");
+            return;
+        }
+
+        if(nodes.size()==lvl){
+            ArrayList<String> arrayList= new ArrayList<>();
+            nodes.add(arrayList);
+        }
+
+        if(root.isVariable()){
+            nodes.get(lvl).add("x");
+        }
+        else if(root.isLeaf()){
+            nodes.get(lvl).add(Double.toString(root.getVal()));
+        }
+        else{
+            nodes.get(lvl).add(root.getOperator().toString());
+        }
+
+        if(root.getLeftChild()!=null){
+            FunctionTree leftChild=new FunctionTree(root.getLeftChild());
+            leftChild.fillOutTreePrint(nodes,lvl+1);
+        }
+        if(root.getRightChild()!=null){
+            FunctionTree rightChild=new FunctionTree(root.getRightChild());
+            rightChild.fillOutTreePrint(nodes, lvl+1);
+        }
     }
 
     public Node getRoot() {
