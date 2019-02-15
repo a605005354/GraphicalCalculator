@@ -22,7 +22,7 @@ public class Driver {
         JPanel operatorPanel = new JPanel(new GridBagLayout());
         //one inputPanel = one textArea + three buttons (color, piecewise, clean)
         JPanel inputPanel=new JPanel(new GridBagLayout());
-        JPanel inputPanel2= new JPanel((new GridBagLayout()));
+        //JPanel inputPanel2= new JPanel((new GridBagLayout()));
         //container for all inputPanels; include two buttons (+/-)
         JScrollPane GroupInput = new JScrollPane();
         GroupInput.setPreferredSize(new Dimension(400,200));
@@ -45,12 +45,12 @@ public class Driver {
 
         inputDialog.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
         inputDialog.setPreferredSize(new Dimension(120, 20));
-        JTextField domainLeftIn = new JTextField();
+        /*JTextField domainLeftIn = new JTextField();
         domainLeftIn.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
         domainLeftIn.setPreferredSize(new Dimension(120, 20));
         JTextField domainRightIn = new JTextField();
         domainRightIn.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
-        domainRightIn.setPreferredSize(new Dimension(120, 20));
+        domainRightIn.setPreferredSize(new Dimension(120, 20));*/
         JButton plotButton = new JButton("Plot");
 
 
@@ -113,8 +113,8 @@ public class Driver {
         xR.gridx = 4;
         xR.gridy = 0;
         //xrangePanel.add(rightBracket);
-        xrangePanel.add(newnew);
-        domainPanel.add(xrangePanel);
+       // xrangePanel.add(newnew);
+        //domainPanel.add(xrangePanel);
 
 
         //GridBag
@@ -146,7 +146,8 @@ public class Driver {
         operatorPanel.add(piButton,c);
         c.gridx = 4;
         c.gridy = 1;
-        operatorPanel.add(eButton,c);
+       operatorPanel.add(eButton,c);
+       // operatorPanel.add(newnew,c);
 
 
         plotButton.addActionListener(new ActionListener() {
@@ -237,7 +238,8 @@ public class Driver {
         c2.insets = new Insets(10,10,10,10);
         c2.gridx = 0;
         c2.gridy =20;
-        LeftSide.add(operatorPanel, c2);
+        //LeftSide.add(operatorPanel, c2);
+        LeftSide.add(newnew,c2);
 
 
         c2.gridx = 0;
