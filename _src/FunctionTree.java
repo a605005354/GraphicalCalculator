@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class FunctionTree {
-    private Node root;
+    public Node root;
     ArrayList<ArrayList<String>> nodes;     //for print use only
 
     public FunctionTree(Node node){
