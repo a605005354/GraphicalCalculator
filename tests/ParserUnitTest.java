@@ -1,7 +1,7 @@
 public class ParserUnitTest {
     public static void main(String[] args) {
         //Simple tests
-        Parser ps1=new Parser("x+5");
+        Parser ps1=new Parser("x+5.322");
         ps1.parse();
         System.out.println("ps1:");
         ps1.getFunctionTree().print();
@@ -17,7 +17,7 @@ public class ParserUnitTest {
         System.out.println("--------------------------------------");
 
         //Complex tests
-        Parser pc1=new Parser("sin(x)+6");
+        /*Parser pc1=new Parser("sin(x)+6");
         pc1.parse();
         System.out.println("pc1:");
         pc1.getFunctionTree().print();
@@ -57,9 +57,9 @@ public class ParserUnitTest {
         pfi3.parse();
         System.out.println("pfi3:");
         pfi3.getFunctionTree().print();
-        Parser pfi4=new Parser("+-*/");
+        Parser pfi4=new Parser("+-*//*");
         pfi4.parse();
         System.out.println("pfi4:");
-        pfi4.getFunctionTree().print();
+        pfi4.getFunctionTree().print();*/
     }
 }

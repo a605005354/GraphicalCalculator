@@ -5,6 +5,7 @@ public class Node {
     private Operator operator;
     private Node leftChild;
     private Node rightChild;
+    private Node parent;
 
     public Node(double val) {
         this.variable=false;
@@ -22,6 +23,13 @@ public class Node {
             leftChild = null;
             rightChild = null;
         }
+    }
+
+    public Node(Operator operator) {
+        this.variable = false;
+        isLeaf = false;
+        leftChild = null;
+        rightChild = null;
     }
 
     public Node(){
