@@ -137,7 +137,7 @@ public class Driver {
                 String input = oriInputPanel.getInputFunc();
                 Parser parser=new Parser(input);
                 parser.parse();
-                FunctionTree result=parser.getFunctionTree();
+                FunctionTree result = parser.getFunctionTree();
                 ((FunctionPanel) functionPanel).setFunctionTree(result);
                 ((FunctionPanel) functionPanel).functionSet=true;
                 functionPanel.repaint();
