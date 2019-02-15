@@ -7,7 +7,7 @@ public enum Operator {
         }else if (o==multiply || o==divide) {
             return 2;
         }else if (o == sin || o== cos || o == tan || o==arcsin || o == arccos || o== arctan
-                    || o == log || o == ln || o == lg) {
+                    || o == log || o == ln || o == lg || o == arcsin || o == arcsin || o == arctan) {
             return 3;
         }else if (o == power || o == sqrt) {
             return 4;

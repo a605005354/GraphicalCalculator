@@ -25,27 +25,27 @@ public class ParserUnitTest {
         pc2.parse();
         System.out.println("pc2:");
         pc2.getFunctionTree().print();
-        /*Parser pc3=new Parser("(arctan(x)+x)^(2x)-1/x");
+        Parser pc3=new Parser("(arctan(x)+x)^(2*x)-1/x");
         pc3.parse();
         System.out.println("pc3:");
         pc3.getFunctionTree().print();
 
-        System.out.println("--------------------------------------");*/
+        System.out.println("--------------------------------------");
 
         //Faulty parenthesis tests
-        /*Parser pfp1=new Parser("((x+2)*3");
+        Parser pfp1=new Parser("((x+2)*3");
         pfp1.parse();
-        System.out.println("pfp1:");
-        pfp1.getFunctionTree().print();
+        //System.out.println("pfp1:");
+        //pfp1.getFunctionTree().print();
         Parser pfp2=new Parser("x+2)*3");
         pfp2.parse();
-        System.out.println("pfp2:");
-        pfp2.getFunctionTree().print();
+        //System.out.println("pfp2:");
+        //pfp2.getFunctionTree().print();
 
         System.out.println("--------------------------------------");
 
         //Faulty input tests
-        Parser pfi1=new Parser("2x3+1");
+        /*Parser pfi1=new Parser("2x3+1");
         pfi1.parse();
         System.out.println("pfi1:");
         pfi1.getFunctionTree().print();

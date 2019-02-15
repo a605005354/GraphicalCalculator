@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Parser {
     private String input;
@@ -11,13 +8,18 @@ public class Parser {
     }
     private List<String> seperator = new ArrayList<>();
     String extractNumber = "";
+    String errMessage = "";
 
     //TODO
 
+    String getErrMessage() {
+        return errMessage;
+    }
     boolean isOperator (String operator) {
         if (operator.equals("plus") || operator.equals("minus") || operator.equals("multiply") || operator.equals("divide")
                 || operator.equals("sin") || operator.equals("cos") || operator.equals("tan") || operator.equals("log") ||
-                operator.equals("power") || operator.equals("ln") || operator.equals("lg")) {
+                operator.equals("power") || operator.equals("ln") || operator.equals("lg") || operator.equals("arccos")
+                || operator.equals("arcsin") || operator.equals("arctan")) {
             return true;
         }
         return false;
@@ -25,6 +27,7 @@ public class Parser {
     boolean isOperands (String operand) {
         return operand.matches("-?\\d+(\\.\\d+)?");
     }
+
     boolean isVariable(String var) {
         if (var.equals("x")) {
             return true;
@@ -37,7 +40,6 @@ public class Parser {
         }
         System.out.println();
     }
-
     int extractNumber(String s, int index) {
         int i = index;
         String number = "";
@@ -53,7 +55,30 @@ public class Parser {
         extractNumber= number;
         return i;
     }
+    boolean isBioperator(Operator operator) {
+        if (operator == Operator.plus || operator == Operator.minus
+                || operator == Operator.multiply || operator == Operator.divide
+                || operator == Operator.power)
+        {
+            return true;
+        }
+        return false;
+    }
 
+    boolean isParenthesis (String s) {
+        if (Operator.leftpar.toString().equalsIgnoreCase(s) || Operator.rightpar.toString().equalsIgnoreCase(s)) {
+            return true;
+        }
+        return false;
+    }
+    boolean checkPar(List<String> list) {
+        int countleft = Collections.frequency(seperator, "leftpar");
+        int countright = Collections.frequency(seperator, "rightpar");
+        if (countleft == countright) {
+            return true;
+        }
+        return false;
+    }
     void parse(){
         int i = 0;
         int flag = 0;
@@ -80,30 +105,47 @@ public class Parser {
                     case '^':
                         seperator.add("power");
                         break;
+                    case 'a':
+                        if (input.indexOf("arcsin") == i) {
+                            seperator.add("arcsin");
+                        }else if (input.indexOf("arccos") == i) {
+                            seperator.add("arccos");
+                        }else if (input.indexOf("arctan") == i) {
+                            seperator.add("arctan");
+                        }
+                        i = i + 4;
+                        break;
                     case 'l':
                         if (input.indexOf("log") == i) {
                             seperator.add("log");
+                            i = i + 2;
                         }else if (input.indexOf("ln") == i) {
                             seperator.add("ln");
+                            i = i + 1;
                         }else if (input.indexOf("lg") == i) {
                             seperator.add("lg");
+                            i = i + 1;
                         }
                         break;
                     case 's':
                         if (input.indexOf("sin") == i){
                             seperator.add("sin");
+                            i = i + 2;
                         }else if (input.indexOf("sqrt") == i) {
                             seperator.add("sqrt");
+                            i = i + 3;
                         }
                         break;
                     case 'c':
                         if(input.indexOf("cos") == i) {
                             seperator.add("cos");
+                            i = i + 2;
                         }
                         break;
                     case 't':
                         if (input.indexOf("tan") == i) {
                             seperator.add("tan");
+                            i = i + 2;
                         }
                         break;
                     case '(':
@@ -119,30 +161,20 @@ public class Parser {
             }
             i++;
         }
-        //printList(seperator);
-        ParseList(seperator);
+        printList(seperator);
+        if (checkPar(seperator)) {
+            ParseList(seperator);
+        }else {
+            errMessage = "Unbalanced Parenthesis";
+            System.out.println("Unbalanced Parenthesis");
+
+        }
         /*Node cn1=new Node(true);
         Node cn2=new Node(1);
         Node cn3=new Node(2);
         Node cn4=Node.combineNode(cn1,cn2,Operator.plus);
         Node cn5=Node.combineNode(cn4,cn3,Operator.divide);
         functionTree=new FunctionTree(cn5);*/
-    }
-    boolean isBioperator(Operator operator) {
-        if (operator == Operator.plus || operator == Operator.minus
-                || operator == Operator.multiply || operator == Operator.divide
-                || operator == Operator.power)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    boolean isParenthesis (String s) {
-        if (Operator.leftpar.toString().equalsIgnoreCase(s) || Operator.rightpar.toString().equalsIgnoreCase(s)) {
-            return true;
-        }
-        return false;
     }
     void ParseList(List<String> list) {
         Stack<Operator> operators = new Stack<>();
@@ -198,22 +230,25 @@ public class Parser {
                         }
                     }
                     //pop out left parenthesis
-                    operators.pop();
-                    if (isBioperator(operators.peek())){
-                        Node rightoperand = operands.pop();
-                        Node leftoperand = operands.pop();
-                        Node newCombine = Node.combineNode(leftoperand,rightoperand,operators.pop());
-                        operands.push(newCombine);
+                    if (operators.size() > 1) {
+                        operators.pop();
+                        if (isBioperator(operators.peek())){
+                            Node rightoperand = operands.pop();
+                            Node leftoperand = operands.pop();
+                            Node newCombine = Node.combineNode(leftoperand,rightoperand,operators.pop());
+                            operands.push(newCombine);
+                        }else {
+                            Node combine = Node.combineNode(operands.pop(),operators.pop());
+                            operands.push(combine);
+                        }
                     }else {
-                        Node combine = Node.combineNode(operands.pop(),operators.pop());
-                        operands.push(combine);
+                        operators.pop();
                     }
                 }
             }
             // if it is a number
             else if(isOperands(list.get(i))) {
                 Node newOprands = new Node(Double.parseDouble(list.get(i)));
-                //System.out.println("operand is: " + newOprands.getVal());
                 operands.push(newOprands);
             }
             //if it is a variable
