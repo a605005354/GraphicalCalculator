@@ -17,7 +17,7 @@ public class ParserUnitTest {
         System.out.println("--------------------------------------");
 
         //Complex tests
-        /*Parser pc1=new Parser("sin(x)+6");
+        Parser pc1=new Parser("sin(x)+6");
         pc1.parse();
         System.out.println("pc1:");
         pc1.getFunctionTree().print();
@@ -25,15 +25,15 @@ public class ParserUnitTest {
         pc2.parse();
         System.out.println("pc2:");
         pc2.getFunctionTree().print();
-        Parser pc3=new Parser("(arctan(x)+x)^(2x)-1/x");
+        /*Parser pc3=new Parser("(arctan(x)+x)^(2x)-1/x");
         pc3.parse();
         System.out.println("pc3:");
         pc3.getFunctionTree().print();
 
-        System.out.println("--------------------------------------");
+        System.out.println("--------------------------------------");*/
 
         //Faulty parenthesis tests
-        Parser pfp1=new Parser("((x+2)*3");
+        /*Parser pfp1=new Parser("((x+2)*3");
         pfp1.parse();
         System.out.println("pfp1:");
         pfp1.getFunctionTree().print();
