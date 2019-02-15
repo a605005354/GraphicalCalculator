@@ -12,16 +12,20 @@ public class FuncFrame extends JPanel {
     public Color color = Color.black;
     private int isClea = 0;
     int pieceClick = 1;
+    JTextField inputDialog;
+    public int flag =0;
 
     FuncFrame (){
         JPanel inputPanel=new JPanel(new GridBagLayout());
-        inputPanel.setSize(100,200);
+        inputPanel.setSize(300,50);
+        this.setLayout(new GridBagLayout());
 
         //input area:
         JLabel indiclabel = new JLabel("Enter function here:");
-        JTextField inputDialog = new JTextField();
+        inputDialog = new JTextField();
         inputDialog.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
         inputDialog.setPreferredSize(new Dimension(120, 20));
+
 
         //button 1: click to pop the piecewise
         JButton pieceWise = new JButton("+piecewise");
@@ -76,14 +80,17 @@ public class FuncFrame extends JPanel {
         pieceWise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               // System.out.println("sdf "+pieceClick);
                 if(pieceClick == 1){
                     popPiece.show();
                     pieceClick = 0;
-                }else if(pieceClick == 0){
+                }else {
 
                     popPiece.hide();
                     pieceClick = 1;
                 }
+
+
 
             }
         });
@@ -113,14 +120,32 @@ public class FuncFrame extends JPanel {
 
             }
         });
-        this. add(indiclabel);
-        this.add(inputDialog);
-        this.add(pieceWise);
-        this.add(clearInput);
+        GridBagConstraints wholeStyle = new GridBagConstraints();
+        wholeStyle.insets = new Insets(10,10,10,10);
+        wholeStyle.gridx = 1;
+        wholeStyle.gridy = 0;
+        this.add(indiclabel,wholeStyle);
+        wholeStyle.gridx = 5;
+        wholeStyle.gridy = 0;
+        this.add(inputDialog,wholeStyle);
+        wholeStyle.gridx = 1;
+        wholeStyle.gridy = 1;
+        this.add(pieceWise,wholeStyle);
+        wholeStyle.gridx = 5;
+        wholeStyle.gridy = 1;
+        this.add(clearInput,wholeStyle);
         //this.pack();
         this.setVisible(true);
 
 
+    }
+
+    String getInputFunc(){
+        return inputDialog.getText();
+    }
+
+    void setInputText(String input){
+        inputDialog.setText(input);
     }
 
 
