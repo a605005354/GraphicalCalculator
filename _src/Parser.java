@@ -81,8 +81,6 @@ public class Parser {
     }
     void parse(){
         int i = 0;
-        int flag = 0;
-        String number = "";
         while (i < input.length()) {
             if (Character.isDigit(input.charAt(i))) {
                 i = extractNumber(input, i);

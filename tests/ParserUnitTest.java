@@ -45,7 +45,7 @@ public class ParserUnitTest {
         System.out.println("--------------------------------------");
 
         //Faulty input tests
-        /*Parser pfi1=new Parser("2x3+1");
+        Parser pfi1=new Parser("2x3+1");
         pfi1.parse();
         System.out.println("pfi1:");
         pfi1.getFunctionTree().print();
@@ -60,6 +60,6 @@ public class ParserUnitTest {
         Parser pfi4=new Parser("+-*//*");
         pfi4.parse();
         System.out.println("pfi4:");
-        pfi4.getFunctionTree().print();*/
+        pfi4.getFunctionTree().print();
     }
 }
