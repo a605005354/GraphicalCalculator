@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Parser {
     private String input;
-    private FunctionTree functionTree;
+    public FunctionTree functionTree;
     Parser(String input){
         this.input=input;
     }

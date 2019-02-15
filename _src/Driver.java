@@ -74,10 +74,11 @@ public class Driver {
         JButton tanButton = new JButton("tan");
         JButton piButton = new JButton("π");
         JButton eButton = new JButton("e");
+        FuncFrame newnew = new FuncFrame();
 
 
         //ComboBox Info
-        String [] leftside = {"[","("};
+        /*String [] leftside = {"[","("};
         String [] rightside = {"]",")"};
         JComboBox leftBracket = new JComboBox(leftside);
         leftBracket.setSelectedIndex(0);
@@ -94,7 +95,7 @@ public class Driver {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(rightside[rightBracket.getSelectedIndex()]);
             }
-        });
+        });*/
         //set combobox position:
         GridBagConstraints xR = new GridBagConstraints();
         xR.insets = new Insets(10,10,10,10);
@@ -103,7 +104,7 @@ public class Driver {
         xrangePanel.add(xrange,xR);
         xR.gridx = 2;
         xR.gridy = 0;
-        xrangePanel.add(leftBracket,xR);
+        //xrangePanel.add(leftBracket,xR);
         //xR.gridx = 3;
         //xR.gridy = 0;
         //domainPanel.add(domainLeftIn)
@@ -111,7 +112,8 @@ public class Driver {
 
         xR.gridx = 4;
         xR.gridy = 0;
-        xrangePanel.add(rightBracket);
+        //xrangePanel.add(rightBracket);
+        xrangePanel.add(newnew);
         domainPanel.add(xrangePanel);
 
 
@@ -153,7 +155,7 @@ public class Driver {
                 String input = inputDialog.getText();
                 Parser parser=new Parser(input);
                 parser.parse();
-                FunctionTree result=parser.getFunctionTree();
+                FunctionTree result = parser.getFunctionTree();
                 ((FunctionPanel) functionPanel).setFunctionTree(result);
                 ((FunctionPanel) functionPanel).functionSet=true;
                 functionPanel.repaint();
