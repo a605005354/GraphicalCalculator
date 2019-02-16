@@ -167,6 +167,7 @@ public class Parser {
             System.out.println("Unbalanced Parenthesis");
 
         }
+        functionTree.print();
         /*Node cn1=new Node(true);
         Node cn2=new Node(1);
         Node cn3=new Node(2);
