@@ -53,6 +53,7 @@ public class Driver {
                 ContentPanel.add(newFunc);
                 multipleFunc[funcCount-1] = newFunc;
                 ContentPanel.add(multifuncPanel);
+                System.out.println("new funcFrame Array updated");
                 mainFrame.pack();
                 mainFrame.repaint();
 
@@ -66,6 +67,7 @@ public class Driver {
                     funcCount--;
                     ContentPanel.remove(multipleFunc[funcCount]);
                     multipleFunc[funcCount] = null;
+                    System.out.println("new funcFrame Array updated");
                     mainFrame.pack();
                     mainFrame.repaint();
                 }else{
