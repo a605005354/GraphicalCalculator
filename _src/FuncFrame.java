@@ -24,11 +24,11 @@ public class FuncFrame extends JPanel {
         JLabel indiclabel = new JLabel("Enter function here:");
         inputDialog = new JTextField();
         inputDialog.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
-        inputDialog.setPreferredSize(new Dimension(120, 20));
+        inputDialog.setPreferredSize(new Dimension(150, 20));
 
 
         //button 1: click to pop the piecewise
-        JButton pieceWise = new JButton("+piecewise");
+        JButton pieceWise = new JButton("+xrange");
         //Component inside the popup
         JTextField domainLeftIn = new JTextField();
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
@@ -124,16 +124,21 @@ public class FuncFrame extends JPanel {
         wholeStyle.insets = new Insets(10,10,10,10);
         wholeStyle.gridx = 1;
         wholeStyle.gridy = 0;
-        this.add(indiclabel,wholeStyle);
-        wholeStyle.gridx = 5;
-        wholeStyle.gridy = 0;
-        this.add(inputDialog,wholeStyle);
+        this.add(setColor,wholeStyle);
         wholeStyle.gridx = 1;
         wholeStyle.gridy = 1;
-        this.add(pieceWise,wholeStyle);
-        wholeStyle.gridx = 5;
+        this.add(indiclabel,wholeStyle);
+        wholeStyle.gridx = 2;
         wholeStyle.gridy = 1;
+        this.add(inputDialog,wholeStyle);
+        wholeStyle.gridx = 1;
+        wholeStyle.gridy = 2;
+        this.add(pieceWise,wholeStyle);
+        wholeStyle.gridx = 2;
+        wholeStyle.gridy = 2;
         this.add(clearInput,wholeStyle);
+
+
         //this.pack();
         this.setVisible(true);
 

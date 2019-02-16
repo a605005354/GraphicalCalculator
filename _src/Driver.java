@@ -29,7 +29,7 @@ public class Driver {
         JScrollPane GroupInput = new JScrollPane();
         JPanel ContentPanel = new JPanel();
         ContentPanel.setLayout(new BoxLayout(ContentPanel,BoxLayout.Y_AXIS));
-        GroupInput.setPreferredSize(new Dimension(300,350));
+        GroupInput.setPreferredSize(new Dimension(350,350));
         Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
         GroupInput.setBorder(border);
         GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -53,6 +53,7 @@ public class Driver {
                 ContentPanel.add(newFunc);
                 multipleFunc[funcCount-1] = newFunc;
                 ContentPanel.add(multifuncPanel);
+                System.out.println("new funcFrame Array updated");
                 mainFrame.pack();
                 mainFrame.repaint();
 
@@ -66,6 +67,7 @@ public class Driver {
                     funcCount--;
                     ContentPanel.remove(multipleFunc[funcCount]);
                     multipleFunc[funcCount] = null;
+                    System.out.println("new funcFrame Array updated");
                     mainFrame.pack();
                     mainFrame.repaint();
                 }else{
