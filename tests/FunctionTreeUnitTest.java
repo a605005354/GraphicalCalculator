@@ -110,7 +110,7 @@ public class FunctionTreeUnitTest {
         System.out.println("-----------------------------------------------\n");
 
         //Tests for complex expressions
-        //cf1=(x+1)/2
+      /*  //cf1=(x+1)/2
         Node cn1=new Node(true);
         Node cn2=new Node(1);
         Node cn3=new Node(2);
@@ -134,6 +134,6 @@ public class FunctionTreeUnitTest {
         cn3=Node.combineNode(cn1, Operator.cos);
         cn4=Node.combineNode(cn2,cn3,Operator.divide);
         FunctionTree cf3=new FunctionTree(cn4);
-        System.out.println("cf3 = " + cf3.value(Math.PI/4));
+        System.out.println("cf3 = " + cf3.value(Math.PI/4));*/
     }
 }
