@@ -1,4 +1,3 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -11,8 +10,8 @@ public class Driver {
     static int funcCount = 1;
     public static void main(String[] args) {
         JFrame mainFrame=new JFrame();
-        FuncFrame multipleFunc[] = new FuncFrame[5];
-        FuncFrame oriInputPanel = new FuncFrame();
+        ExpressionPanel multipleFunc[] = new ExpressionPanel[5];
+        ExpressionPanel oriInputPanel = new ExpressionPanel();
         multipleFunc[1] = oriInputPanel;
 
 
@@ -49,7 +48,7 @@ public class Driver {
             public void actionPerformed(ActionEvent e) {
                 funcCount++;
                 ContentPanel.remove(multifuncPanel);
-                FuncFrame newFunc = new FuncFrame();
+                ExpressionPanel newFunc = new ExpressionPanel();
                 ContentPanel.add(newFunc);
                 multipleFunc[funcCount-1] = newFunc;
                 ContentPanel.add(multifuncPanel);
