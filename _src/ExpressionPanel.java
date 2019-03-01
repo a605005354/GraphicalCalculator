@@ -7,7 +7,7 @@ import javax.swing.*;
 /**
  * Created by qier on 2019/2/12.
  */
-public class FuncFrame extends JPanel {
+public class ExpressionPanel extends JPanel {
     private String inputFunction;
     public Color color = Color.black;
     private int isClea = 0;
@@ -15,7 +15,7 @@ public class FuncFrame extends JPanel {
     JTextField inputDialog;
     public int flag =0;
 
-    FuncFrame (){
+    ExpressionPanel(){
         JPanel inputPanel=new JPanel(new GridBagLayout());
         inputPanel.setSize(300,50);
         this.setLayout(new GridBagLayout());
