@@ -14,7 +14,6 @@ public class Driver {
         ExpressionPanel oriInputPanel = new ExpressionPanel();
         multipleFunc[1] = oriInputPanel;
 
-
         //ALL panel
         //Leftside = GroupInput + operatorPanel
         JPanel LeftSide =  new JPanel(new GridBagLayout());
@@ -43,6 +42,10 @@ public class Driver {
         //all button:
         JButton plotButton = new JButton("Plot");
         JButton addFunc = new JButton("+Add");
+
+
+
+
         addFunc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,6 +54,7 @@ public class Driver {
                 ExpressionPanel newFunc = new ExpressionPanel();
                 ContentPanel.add(newFunc);
                 multipleFunc[funcCount-1] = newFunc;
+                Color colorline = newFunc.getColor();
                 ContentPanel.add(multifuncPanel);
                 System.out.println("new funcFrame Array updated");
                 mainFrame.pack();
@@ -141,6 +145,7 @@ public class Driver {
                 FunctionTree result = parser.getFunctionTree();
                 ((FunctionPanel) functionPanel).setFunctionTree(result);
                 ((FunctionPanel) functionPanel).functionSet=true;
+                ((FunctionPanel) functionPanel).setColor(oriInputPanel.getColor());
                 functionPanel.repaint();
             }
         });
