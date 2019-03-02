@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dbca558-83e3-4ea4-97a4-852094b47c32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/_src/FunctionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/FunctionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_src/ExpressionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/ExpressionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_src/FunctionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/FunctionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Interval.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/PixelPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/PixelPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/GraphicalCalculator/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/GraphicalCalculator/Test.class" afterDir="false" />
     </list>
     <ignored path="GraphicalCalculator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,59 +31,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_src/FunctionPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#3469#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_src/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-910">
+            <state>
               <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_src/Interval.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="35" />
-              <folding>
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#254#255#0" expanded="true" />
-                <element signature="e#285#286#0" expanded="true" />
-                <element signature="e#313#314#0" expanded="true" />
-                <element signature="e#348#349#0" expanded="true" />
-                <element signature="e#379#380#0" expanded="true" />
-                <element signature="e#415#416#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <element signature="e#701#702#0" expanded="true" />
-                <element signature="e#733#734#0" expanded="true" />
-                <element signature="e#782#783#0" expanded="true" />
-                <element signature="e#822#823#0" expanded="true" />
-                <element signature="e#863#864#0" expanded="true" />
-                <element signature="e#897#898#0" expanded="true" />
-                <element signature="e#948#949#0" expanded="true" />
-                <element signature="e#990#991#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_src/Analyser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="87" selection-start-line="2" selection-start-column="87" selection-end-line="2" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -92,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_src/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="252" column="8" selection-start-line="252" selection-start-column="8" selection-end-line="252" selection-end-column="8" />
+            <state relative-caret-position="380">
+              <caret line="147" column="83" selection-start-line="147" selection-start-column="83" selection-end-line="147" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -101,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_src/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="272" column="5" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
+            <state relative-caret-position="1315">
+              <caret line="269" column="9" lean-forward="true" selection-start-line="269" selection-start-column="9" selection-end-line="269" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -110,29 +69,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_src/FunctionTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1540">
-              <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-              <folding>
-                <element signature="e#3776#3777#0" expanded="true" />
-                <element signature="e#3803#3804#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="38">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_src/FunctionInfo.java">
+        <entry file="file://$PROJECT_DIR$/_src/FunctionPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+            <state relative-caret-position="256">
+              <caret line="80" column="5" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
               <folding>
+                <element signature="e#0#3469#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
-                <element signature="e#1014#1015#0" expanded="true" />
-                <element signature="e#1074#1075#0" expanded="true" />
-                <element signature="e#1106#1107#0" expanded="true" />
-                <element signature="e#1149#1150#0" expanded="true" />
-                <element signature="e#1178#1179#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,8 +91,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_src/ExpressionPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            <state relative-caret-position="1885">
+              <caret line="169" column="11" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="11" />
+              <folding>
+                <element signature="e#1515#1516#0" expanded="true" />
+                <element signature="e#1607#1608#0" expanded="true" />
+                <element signature="e#5483#5484#0" expanded="true" />
+                <element signature="e#5527#5528#0" expanded="true" />
+                <element signature="e#5565#5566#0" expanded="true" />
+                <element signature="e#5607#5608#0" expanded="true" />
+                <element signature="e#5585#5586#0" expanded="true" />
+                <element signature="e#5613#5614#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,6 +116,17 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>color</find>
+      <find>Black</find>
+      <find>functionPanel</find>
+      <find>newFunc</find>
+      <find>ExpressionPanel</find>
+      <find>oriInpu</find>
+      <find>black</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -163,17 +134,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/_src/Parser.java" />
-        <option value="$PROJECT_DIR$/_src/FunctionTree.java" />
         <option value="$PROJECT_DIR$/tests/ParserUnitTest.java" />
         <option value="$PROJECT_DIR$/tests/FunctionTreeUnitTest.java" />
-        <option value="$PROJECT_DIR$/_src/FunctionPanel.java" />
-        <option value="$PROJECT_DIR$/_src/Driver.java" />
-        <option value="$PROJECT_DIR$/_src/ExpressionPanel.java" />
         <option value="$PROJECT_DIR$/_src/Analyser.java" />
         <option value="$PROJECT_DIR$/_src/Interval.java" />
         <option value="$PROJECT_DIR$/_src/FunctionInfo.java" />
+        <option value="$PROJECT_DIR$/_src/FunctionTree.java" />
+        <option value="$PROJECT_DIR$/_src/ExpressionPanel.java" />
+        <option value="$PROJECT_DIR$/_src/Driver.java" />
+        <option value="$PROJECT_DIR$/_src/FunctionPanel.java" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -481,10 +456,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="0" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2657512" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26984128" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -493,7 +467,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32846716" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3271523" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -559,17 +533,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_src/Driver.java">
+    <entry file="file://$PROJECT_DIR$/_src/Interval.java" />
+    <entry file="file://$PROJECT_DIR$/_src/FunctionInfo.java" />
+    <entry file="file://$PROJECT_DIR$/_src/Analyser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="252" column="8" selection-start-line="252" selection-start-column="8" selection-end-line="252" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_src/ExpressionPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        <state relative-caret-position="38">
+          <caret line="2" column="87" selection-start-line="2" selection-start-column="87" selection-end-line="2" selection-end-column="87" />
         </state>
       </provider>
     </entry>
@@ -580,86 +549,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_src/Parser.java">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="272" column="5" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
+        <state relative-caret-position="161">
+          <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_src/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-910">
+        <state>
           <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_src/FunctionTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1540">
-          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding>
-            <element signature="e#3776#3777#0" expanded="true" />
-            <element signature="e#3803#3804#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="38">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_src/Analyser.java">
+    <entry file="file://$PROJECT_DIR$/_src/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="87" selection-start-line="2" selection-start-column="87" selection-end-line="2" selection-end-column="87" />
+        <state relative-caret-position="1315">
+          <caret line="269" column="9" lean-forward="true" selection-start-line="269" selection-start-column="9" selection-end-line="269" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_src/Interval.java">
+    <entry file="file://$PROJECT_DIR$/_src/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="35" />
+          <caret line="147" column="83" selection-start-line="147" selection-start-column="83" selection-end-line="147" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_src/ExpressionPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1885">
+          <caret line="169" column="11" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="11" />
           <folding>
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#379#380#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#733#734#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#948#949#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
+            <element signature="e#1515#1516#0" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
+            <element signature="e#5483#5484#0" expanded="true" />
+            <element signature="e#5527#5528#0" expanded="true" />
+            <element signature="e#5565#5566#0" expanded="true" />
+            <element signature="e#5607#5608#0" expanded="true" />
+            <element signature="e#5585#5586#0" expanded="true" />
+            <element signature="e#5613#5614#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_src/FunctionPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="256">
+          <caret line="80" column="5" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
           <folding>
             <element signature="e#0#3469#0" expanded="true" />
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_src/FunctionInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-            <element signature="e#1014#1015#0" expanded="true" />
-            <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#1106#1107#0" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1178#1179#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -12,6 +12,7 @@ public class FunctionPanel extends JPanel {
     private static final int LENGTH=800;
     private static final int HEIGHT=800;
     public boolean functionSet=false;
+    public Color color;
 
 
     public FunctionPanel(){
@@ -43,7 +44,7 @@ public class FunctionPanel extends JPanel {
                 int j = pointToPixel(new Point(x,y)).getJ();
                 int j5 = pointToPixel(new Point(x5,y5)).getJ();
 //                paintPixel(new PixelPoint(i,j), Color.black, g);
-                drawline(new PixelPoint(i,j), new PixelPoint(i+2,j5),Color.black, g);
+                drawline(new PixelPoint(i,j), new PixelPoint(i+2,j5),color, g);
             }
 
             for(int i = 0; i < LENGTH; i++){
@@ -86,16 +87,24 @@ public class FunctionPanel extends JPanel {
         return new PixelPoint(i,j);
     }
     public void paintPixel(PixelPoint pixelPoint, Color color, Graphics g){
+        g.setColor(color);
         g.fillRect(pixelPoint.getI(),pixelPoint.getJ(),1,1);
     }
     public void drawline(PixelPoint p1, PixelPoint p2, Color color, Graphics g){
+        g.setColor(color);
         g.drawLine(p1.getI(),p1.getJ(),p2.getI(),p2.getJ());
     }
     public void addLabel(String label,int x, int y, Graphics g){
+        g.setColor(Color.BLACK);
         g.drawString(label, x, y);
     }
 
     public void setFunctionTree(FunctionTree functionTree) {
         this.functionTree = functionTree;
+    }
+
+    public void setColor(Color c){
+        color = c;
+        return;
     }
 }

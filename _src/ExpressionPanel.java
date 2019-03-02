@@ -106,8 +106,22 @@ public class ExpressionPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(colors[setColor.getSelectedIndex()]);
+                if(setColor.getSelectedIndex() == 0){
+                    color = Color.black;
+                }
+                else if(setColor.getSelectedIndex() == 1){
+                    color = Color.BLUE;
+                }
+                else if(setColor.getSelectedIndex() == 2){
+                    color = Color.RED;
+                }
+                else if(setColor.getSelectedIndex() == 3) {
+                    color = Color.YELLOW;
+                }
             }
+
         });
+
 
         //button 3: clean all setting
 
@@ -153,7 +167,9 @@ public class ExpressionPanel extends JPanel {
         inputDialog.setText(input);
     }
 
-
+    public Color getColor(){
+        return color;
+    }
 
 
 
