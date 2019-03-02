@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
 /**
  * Created by qier on 2019/2/12.
@@ -14,14 +13,27 @@ public class ExpressionPanel extends JPanel {
     int pieceClick = 1;
     JTextField inputDialog;
     public int flag =0;
+    int pieceCount = 0;
+    Interval originalInt ;
+    float left;
+    float right;
+    boolean leftOpen;
+    boolean rightOpen;
+    PiecewisePanel pieces[] = new PiecewisePanel[5];
+    JLabel numAlert = new JLabel("Maximum piecewise : 5");
+    JFrame mainPanel;
 
-    ExpressionPanel(){
-        JPanel inputPanel=new JPanel(new GridBagLayout());
-        inputPanel.setSize(300,50);
+    ExpressionPanel(JFrame mainPanel){
+        //inputPanel: panel in popup
+        JPanel inputPanel=new JPanel();
+        inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
+        this.mainPanel = mainPanel;
+        inputPanel.setSize(400,400);
+        //this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         this.setLayout(new GridBagLayout());
 
         //input area:
-        JLabel indiclabel = new JLabel("Enter function here:");
+        JLabel indiclabel = new JLabel("Enter Function here:");
         inputDialog = new JTextField();
         inputDialog.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
         inputDialog.setPreferredSize(new Dimension(150, 20));
@@ -29,7 +41,8 @@ public class ExpressionPanel extends JPanel {
 
         //button 1: click to pop the piecewise
         JButton pieceWise = new JButton("+xrange");
-        //Component inside the popup
+        //Component inside the popup: originial components
+        JLabel staticLabel = new JLabel("default:");
         JTextField domainLeftIn = new JTextField();
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
         JTextField domainRightIn = new JTextField();
@@ -42,6 +55,13 @@ public class ExpressionPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(leftside[leftBracket.getSelectedIndex()]);
+                if(leftBracket.getSelectedIndex() == 0){
+                    leftOpen = false;
+                }else {
+                    leftOpen = true;
+                }
+
+
             }
         });
 
@@ -51,30 +71,101 @@ public class ExpressionPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(rightside[rightBracket.getSelectedIndex()]);
+                if(leftBracket.getSelectedIndex() == 0){
+                    rightOpen = false;
+                }else {
+                    rightOpen = true;
+                }
             }
         });
         //setting pop up
         PopupFactory popFact =new PopupFactory();
-        JPanel popupPanel = new JPanel(new BorderLayout());
-        popupPanel.setSize(new Dimension(200,100));
+        JPanel popupPanel = new JPanel();
+        popupPanel.setLayout(new BoxLayout(popupPanel,BoxLayout.Y_AXIS));
+        //add more pieces func:
+        JButton plus = new JButton("+");
+        JButton minus = new JButton("-");
+        plus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("plus");
+                if(pieceCount == 5){
+                    numAlert.setText("Already to maximum piecewise function");
+                }else{
+                    PiecewisePanel piece = new PiecewisePanel(color);
+                    System.out.println("adding");
+                    inputPanel.add(piece);
+                    inputPanel.setVisible(true);
+                    inputPanel.repaint();
+                    pieces[pieceCount++] = piece;
+                    mainPanel.pack();
+                    mainPanel.repaint();
+                    mainPanel.setVisible(true);
+
+                }
+
+            }
+        });
+
+        minus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("---");
+                if(pieceCount > 0){
+                    inputPanel.remove(pieces[--pieceCount]);
+                    pieces[pieceCount] = null;
+                    inputPanel.repaint();
+                    mainPanel.pack();
+                    mainPanel.repaint();
+                    mainPanel.setVisible(true);
+
+                }
+            }
+        });
+        popupPanel.setSize(new Dimension(500,600));
         Popup popPiece;
-        popPiece = popFact.getPopup(popupPanel,inputPanel,200,280);
+        popPiece = popFact.getPopup(this,popupPanel,200,300);
+        //ExpressionPanel p = new ExpressionPanel();
         /*inputPanel.setLayout(
                 new BoxLayout(inputPanel, BoxLayout.PAGE_AXIS)
         );*/
+        JPanel basicXrange = new JPanel();
+        basicXrange.setLayout(new GridBagLayout());
         GridBagConstraints constrain = new GridBagConstraints();
+        constrain.gridx = 5;
+        constrain.gridy = 0;
+        basicXrange.add(inputDialog,constrain);
         constrain.gridx = 10;
         constrain.gridy = 0;
-        inputPanel.add(leftBracket,constrain);
+        basicXrange.add(leftBracket,constrain);
         constrain.gridx = 15;
         constrain.gridy = 0;
-        inputPanel.add(domainLeftIn,constrain);
+        basicXrange.add(domainLeftIn,constrain);
         constrain.gridx = 70;
         constrain.gridy = 0;
-        inputPanel.add(domainRightIn,constrain);
+        basicXrange.add(domainRightIn,constrain);
         constrain.gridx = 140;
         constrain.gridy = 0;
-        inputPanel.add(rightBracket,constrain);
+        basicXrange.add(rightBracket,constrain);
+        /*constrain.gridx = 5;
+        constrain.gridy = 1;
+        inputPanel.add(plus,constrain);
+        constrain.gridx = 10;
+        constrain.gridy = 1;
+        inputPanel.add(minus,constrain);*/
+        inputPanel.add(staticLabel);
+        inputPanel.add(basicXrange);
+        popupPanel.add(inputPanel);
+        popupPanel.add(plus);
+        popupPanel.add(minus);
+        popupPanel.add(numAlert);
+        popupPanel.setVisible(true);
+        popupPanel.repaint();
+        mainPanel.repaint();
+        mainPanel.setVisible(true);
+
+
+
         //inputPanel.add(domainRightIn);
 
         pieceWise.addActionListener(new ActionListener() {
@@ -89,6 +180,9 @@ public class ExpressionPanel extends JPanel {
                     popPiece.hide();
                     pieceClick = 1;
                 }
+                mainPanel.pack();
+                mainPanel.repaint();
+                mainPanel.setVisible(true);
 
 
 
@@ -106,6 +200,19 @@ public class ExpressionPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(colors[setColor.getSelectedIndex()]);
+
+                switch (setColor.getSelectedIndex()){
+                    case 0: color = Color.black;
+                        break;
+                    case 1: color = Color.cyan;
+                        break;
+                    case 2: color = Color.red;
+                        break;
+                    case 3: color = Color.yellow;
+                        break;
+                }
+
+
             }
         });
 
@@ -141,6 +248,8 @@ public class ExpressionPanel extends JPanel {
 
         //this.pack();
         this.setVisible(true);
+        mainPanel.repaint();
+        mainPanel.setVisible(true);
 
 
     }
@@ -151,6 +260,23 @@ public class ExpressionPanel extends JPanel {
 
     void setInputText(String input){
         inputDialog.setText(input);
+    }
+    void plotPiece(FunctionPanel functionPanel){
+        Parser parser;
+        for (int i = 0; i < 5;i++){
+            if(pieces[i]== null){
+                break;
+            }
+            //// TODO: 2019/3/1
+            //pass interval of each function to backend, backend need to revise function necessary parameter
+            parser=new Parser(pieces[i].getInputFunction());
+            parser.parse();
+            FunctionTree result = parser.getFunctionTree();
+            ((FunctionPanel) functionPanel).setFunctionTree(result);
+            ((FunctionPanel) functionPanel).functionSet=true;
+
+        }
+        functionPanel.repaint();
     }
 
 

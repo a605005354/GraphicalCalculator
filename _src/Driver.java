@@ -9,9 +9,9 @@ public class Driver {
     //Temperate class to work as an entry
     static int funcCount = 1;
     public static void main(String[] args) {
-        JFrame mainFrame=new JFrame();
+        JFrame mainFrame =new JFrame();
         ExpressionPanel multipleFunc[] = new ExpressionPanel[5];
-        ExpressionPanel oriInputPanel = new ExpressionPanel();
+        ExpressionPanel oriInputPanel = new ExpressionPanel(mainFrame);
         multipleFunc[1] = oriInputPanel;
 
 
@@ -46,9 +46,12 @@ public class Driver {
         addFunc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(funcCount == 5) {
+                    return;
+                }
                 funcCount++;
                 ContentPanel.remove(multifuncPanel);
-                ExpressionPanel newFunc = new ExpressionPanel();
+                ExpressionPanel newFunc = new ExpressionPanel(mainFrame);
                 ContentPanel.add(newFunc);
                 multipleFunc[funcCount-1] = newFunc;
                 ContentPanel.add(multifuncPanel);
@@ -135,13 +138,26 @@ public class Driver {
         plotButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String input = oriInputPanel.getInputFunc();
-                Parser parser=new Parser(input);
-                parser.parse();
-                FunctionTree result = parser.getFunctionTree();
-                ((FunctionPanel) functionPanel).setFunctionTree(result);
-                ((FunctionPanel) functionPanel).functionSet=true;
-                functionPanel.repaint();
+                if(multipleFunc[1] == null){
+                    String input = oriInputPanel.getInputFunc();
+                    Parser parser=new Parser(input);
+                    parser.parse();
+                    FunctionTree result = parser.getFunctionTree();
+                    ((FunctionPanel) functionPanel).setFunctionTree(result);
+                    ((FunctionPanel) functionPanel).functionSet=true;
+                    functionPanel.repaint();
+                }else{ //multiple function
+                    for(int i =0; i < 5;i++){
+                        if(multipleFunc[i] == null){
+                            break;
+                        }
+                        multipleFunc[i].plotPiece(((FunctionPanel) functionPanel));
+                    }
+                    functionPanel.repaint();
+
+                }
+
+
             }
         });
 
