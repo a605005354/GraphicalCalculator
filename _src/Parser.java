@@ -1,4 +1,7 @@
+import javax.swing.*;
 import java.util.*;
+
+import static java.lang.System.exit;
 
 public class Parser {
     private String input;
@@ -81,12 +84,13 @@ public class Parser {
     }
     void parse(){
         int i = 0;
+        boolean err = false;
         while (i < input.length()) {
             if (Character.isDigit(input.charAt(i))) {
                 i = extractNumber(input, i);
                 seperator.add(extractNumber);
                 continue;
-            }else{
+            }else {
                 switch (input.charAt(i)) {
                     case '+':
                         seperator.add("plus");
@@ -155,19 +159,31 @@ public class Parser {
                     case 'x':
                         seperator.add("x");
                         break;
+                    default:
+                        err = true;
                 }
             }
             i++;
         }
-        printList(seperator);
-        if (checkPar(seperator)) {
-            ParseList(seperator);
-        }else {
-            errMessage = "Unbalanced Parenthesis";
-            System.out.println("Unbalanced Parenthesis");
 
+        //printList(seperator);
+        if (!checkPar(seperator)) {
+            System.out.println("Unbalanced Parenthesis");
+            JOptionPane.showMessageDialog(null,
+                    "Unbalanced Parenthesis",
+                    "Invalid equation",
+                    JOptionPane.ERROR_MESSAGE);
         }
-        functionTree.print();
+        else if (err) {
+            System.out.println("Invalid Input");
+            JOptionPane.showMessageDialog(null,
+                    "Unknown Characters",
+                    "Invalid equation",
+                    JOptionPane.ERROR_MESSAGE);
+        }else {
+            ParseList(seperator);
+        }
+        //functionTree.print();
         /*Node cn1=new Node(true);
         Node cn2=new Node(1);
         Node cn3=new Node(2);
@@ -179,6 +195,8 @@ public class Parser {
         Stack<Operator> operators = new Stack<>();
         Stack<Node> operands = new Stack<>();
 
+        //initially is operands;
+        boolean err = false;
         for (int i = 0; i < list.size(); i++) {
             //if it is an operator
             if (isOperator(list.get(i))) {
@@ -187,11 +205,11 @@ public class Parser {
                     if (Operator.precedence(newOperator) <= Operator.precedence(operators.peek())) {
                         if (isBioperator(operators.peek()))
                         {
-                            Node rightoperand = operands.pop();
-                            Node leftoperand = operands.pop();
-                            Node newCombine = Node.combineNode(leftoperand,rightoperand,operators.pop());
-                            operands.push(newCombine);
-                            operators.push(newOperator);
+                                Node rightoperand = operands.pop();
+                                Node leftoperand = operands.pop();
+                                Node newCombine = Node.combineNode(leftoperand,rightoperand,operators.pop());
+                                operands.push(newCombine);
+                                operators.push(newOperator);
                         }
                         else
                         {
@@ -256,20 +274,34 @@ public class Parser {
                 operands.push(newVar);
             }
         }
+
         while (operators.size() > 0) {
 
             if (isBioperator(operators.peek())) {
-                Node right = operands.pop();
-                Node left = operands.pop();
-                Node newCombine = Node.combineNode(left, right, operators.pop());
-                operands.push(newCombine);
+                if(operands.size() < 2) {
+                    System.out.println("Invalid equation");
+                    JOptionPane.showMessageDialog(null,
+                            "Lack of operands",
+                            "Invalid equation",
+                            JOptionPane.ERROR_MESSAGE);
+                    err = true;
+                    break;
+                }else{
+                    Node right = operands.pop();
+                    Node left = operands.pop();
+                    Node newCombine = Node.combineNode(left, right, operators.pop());
+                    operands.push(newCombine);
+                }
             }else {
                 Node newCombine = Node.combineNode(operands.pop(),operators.pop());
                 operands.push(newCombine);
             }
         }
-        Node finalNode = operands.pop();
-        functionTree = new FunctionTree(finalNode);
+        if(!err) {
+            Node finalNode = operands.pop();
+            functionTree = new FunctionTree(finalNode);
+        }
+
     }
 
     public FunctionTree getFunctionTree() {
