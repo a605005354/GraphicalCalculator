@@ -43,9 +43,6 @@ public class Driver {
         JButton plotButton = new JButton("Plot");
         JButton addFunc = new JButton("+Add");
 
-
-
-
         addFunc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
