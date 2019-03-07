@@ -53,7 +53,7 @@ public class Driver {
                 multipleFunc[funcCount-1] = newFunc;
                 Color colorline = newFunc.getColor();
                 ContentPanel.add(multifuncPanel);
-                System.out.println("new funcFrame Array updated");
+                //System.out.println("new funcFrame Array updated");
                 mainFrame.pack();
                 mainFrame.repaint();
 
@@ -67,7 +67,7 @@ public class Driver {
                     funcCount--;
                     ContentPanel.remove(multipleFunc[funcCount]);
                     multipleFunc[funcCount] = null;
-                    System.out.println("new funcFrame Array updated");
+                    //System.out.println("new funcFrame Array updated");
                     mainFrame.pack();
                     mainFrame.repaint();
                 }else{
@@ -81,11 +81,9 @@ public class Driver {
         //All Label:
         JLabel inputlabel=new JLabel();
         inputlabel.setText("Enter the function here:");
-        //x rage
+        //x range
         JLabel xrange = new JLabel();
         xrange.setText("Indicate x range here:");
-
-
 
         //Operator buttons
         JButton plusButton = new JButton("+");
@@ -97,8 +95,6 @@ public class Driver {
         JButton tanButton = new JButton("tan");
         JButton piButton = new JButton("π");
         JButton eButton = new JButton("e");
-
-
 
         //GridBag
         GridBagConstraints c = new GridBagConstraints();
@@ -251,7 +247,7 @@ public class Driver {
         mainFrame.add(layout);
         mainFrame.pack();
 
-        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mainFrame.setVisible(true);
 

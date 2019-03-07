@@ -13,6 +13,10 @@ public class FunctionPanel extends JPanel {
     private static final int HEIGHT=800;
     public boolean functionSet=false;
     public Color color;
+    //options
+    private float plotGap;  //The gap in pixel between plot points
+    private Interval xRange;
+    private Interval yRange;
 
 
     public FunctionPanel(){

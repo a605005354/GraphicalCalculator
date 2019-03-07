@@ -14,6 +14,7 @@ public class ExpressionPanel extends JPanel {
     int pieceClick = 1;
     JTextField inputDialog;
     public int flag =0;
+    Popup popPiece;
 
     ExpressionPanel(){
         JPanel inputPanel=new JPanel(new GridBagLayout());
@@ -25,7 +26,6 @@ public class ExpressionPanel extends JPanel {
         inputDialog = new JTextField();
         inputDialog.setLayout(new BoxLayout(inputDialog, BoxLayout.X_AXIS));
         inputDialog.setPreferredSize(new Dimension(150, 20));
-
 
         //button 1: click to pop the piecewise
         JButton pieceWise = new JButton("+xrange");
@@ -41,7 +41,7 @@ public class ExpressionPanel extends JPanel {
         leftBracket.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(leftside[leftBracket.getSelectedIndex()]);
+                //System.out.println(leftside[leftBracket.getSelectedIndex()]);
             }
         });
 
@@ -50,15 +50,15 @@ public class ExpressionPanel extends JPanel {
         rightBracket.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(rightside[rightBracket.getSelectedIndex()]);
+                //System.out.println(rightside[rightBracket.getSelectedIndex()]);
             }
         });
         //setting pop up
         PopupFactory popFact =new PopupFactory();
         JPanel popupPanel = new JPanel(new BorderLayout());
         popupPanel.setSize(new Dimension(200,100));
-        Popup popPiece;
-        popPiece = popFact.getPopup(popupPanel,inputPanel,200,280);
+
+
         /*inputPanel.setLayout(
                 new BoxLayout(inputPanel, BoxLayout.PAGE_AXIS)
         );*/
@@ -80,12 +80,13 @@ public class ExpressionPanel extends JPanel {
         pieceWise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println(pieceClick);
                // System.out.println("sdf "+pieceClick);
                 if(pieceClick == 1){
+                    popPiece = popFact.getPopup(popupPanel,inputPanel,200,280);
                     popPiece.show();
                     pieceClick = 0;
                 }else {
-
                     popPiece.hide();
                     pieceClick = 1;
                 }
@@ -155,8 +156,6 @@ public class ExpressionPanel extends JPanel {
 
         //this.pack();
         this.setVisible(true);
-
-
     }
 
     String getInputFunc(){
