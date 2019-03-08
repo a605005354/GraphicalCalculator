@@ -8,9 +8,10 @@ import java.awt.event.ActionListener;
 public class Driver {
     //Temperate class to work as an entry
     static int funcCount = 1;
+    ExpressionPanel oriInputPanel;
     public static void main(String[] args) {
-        JFrame mainFrame =new JFrame();
-        ExpressionPanel multipleFunc[] = new ExpressionPanel[5];
+        final JFrame mainFrame =new JFrame();
+        final ExpressionPanel multipleFunc[] = new ExpressionPanel[5];
         ExpressionPanel oriInputPanel = new ExpressionPanel(mainFrame);
         multipleFunc[1] = oriInputPanel;
 
@@ -26,7 +27,7 @@ public class Driver {
 
         //container for all inputPanels; include two buttons (+/-)
         JScrollPane GroupInput = new JScrollPane();
-        JPanel ContentPanel = new JPanel();
+        final JPanel ContentPanel = new JPanel();
         ContentPanel.setLayout(new BoxLayout(ContentPanel,BoxLayout.Y_AXIS));
         GroupInput.setPreferredSize(new Dimension(350,350));
         Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
@@ -38,7 +39,7 @@ public class Driver {
         JPanel outputPanel=new JPanel();
         JPanel functionPanel = new FunctionPanel();
         JPanel layout = new JPanel();
-        JPanel multifuncPanel = new JPanel();
+        final JPanel multifuncPanel = new JPanel();
 
         //all button:
         JButton plotButton = new JButton("Plot");
@@ -149,9 +150,15 @@ public class Driver {
                 }else{ //multiple function
                     for(int i =0; i < 5;i++){
                         if(multipleFunc[i] == null){
-                            break;
+                            continue;
                         }
-                        multipleFunc[i].plotPiece(((FunctionPanel) functionPanel));
+                        String input = multipleFunc[i].getInputFunc();
+                        Parser parser=new Parser(input);
+                        parser.parse();
+                        FunctionTree result = parser.getFunctionTree();
+                        ((FunctionPanel) functionPanel).setFunctionTree(result);
+                        ((FunctionPanel) functionPanel).functionSet=true;
+                        //multipleFunc[i].plotPiece(((FunctionPanel) functionPanel));
                     }
                     functionPanel.repaint();
 
@@ -265,7 +272,7 @@ public class Driver {
         mainFrame.add(layout);
         mainFrame.pack();
 
-        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mainFrame.setVisible(true);
 

@@ -12,6 +12,9 @@ public class PiecewisePanel extends JPanel{
 
     Color color;
     JTextField funcPiece;
+    JComboBox rightBracket;
+    String [] leftside = {"[","("};
+    String [] rightside = {"]",")"};
 
     PiecewisePanel(Color color){
         this.color = color;
@@ -22,9 +25,8 @@ public class PiecewisePanel extends JPanel{
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
         JTextField domainRightIn = new JTextField();
         domainRightIn.setPreferredSize(new Dimension(50, 20));
-        String [] leftside = {"[","("};
-        String [] rightside = {"]",")"};
-        JComboBox leftBracket = new JComboBox(leftside);
+
+        final JComboBox leftBracket = new JComboBox(leftside);
         leftBracket.setSelectedIndex(0);
         leftBracket.addActionListener(new ActionListener() {
             @Override
@@ -39,8 +41,7 @@ public class PiecewisePanel extends JPanel{
 
             }
         });
-
-        JComboBox rightBracket = new JComboBox(rightside);
+        rightBracket = new JComboBox(rightside);
         rightBracket.setSelectedIndex(0);
         rightBracket.addActionListener(new ActionListener() {
             @Override

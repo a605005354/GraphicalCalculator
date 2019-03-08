@@ -19,13 +19,23 @@ public class ExpressionPanel extends JPanel {
     float right;
     boolean leftOpen;
     boolean rightOpen;
-    PiecewisePanel pieces[] = new PiecewisePanel[5];
+    PiecewisePanel pieces[] ;
     JLabel numAlert = new JLabel("Maximum piecewise : 5");
     JFrame mainPanel;
+    JPanel popupPanel;
+    JPanel inputPanel;
+    Popup popPiece;
 
-    ExpressionPanel(JFrame mainPanel){
+    //popup &&&& combox
+    PopupFactory popFact;
+    JComboBox leftBracket;
+    JComboBox rightBracket;
+    String [] leftside = {"[","("};
+    String [] rightside = {"]",")"};
+
+    ExpressionPanel(final JFrame mainPanel){
         //inputPanel: panel in popup
-        JPanel inputPanel=new JPanel();
+        inputPanel=new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
         this.mainPanel = mainPanel;
         inputPanel.setSize(400,400);
@@ -40,6 +50,7 @@ public class ExpressionPanel extends JPanel {
 
 
         //button 1: click to pop the piecewise
+        pieces = new PiecewisePanel[5];
         JButton pieceWise = new JButton("+xrange");
         //Component inside the popup: originial components
         JLabel staticLabel = new JLabel("default:");
@@ -47,9 +58,9 @@ public class ExpressionPanel extends JPanel {
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
         JTextField domainRightIn = new JTextField();
         domainRightIn.setPreferredSize(new Dimension(50, 20));
-        String [] leftside = {"[","("};
-        String [] rightside = {"]",")"};
-        JComboBox leftBracket = new JComboBox(leftside);
+        /*String [] leftside = {"[","("};
+        String [] rightside = {"]",")"};*/
+        leftBracket = new JComboBox(leftside);
         leftBracket.setSelectedIndex(0);
         leftBracket.addActionListener(new ActionListener() {
             @Override
@@ -65,7 +76,7 @@ public class ExpressionPanel extends JPanel {
             }
         });
 
-        JComboBox rightBracket = new JComboBox(rightside);
+        rightBracket = new JComboBox(rightside);
         rightBracket.setSelectedIndex(0);
         rightBracket.addActionListener(new ActionListener() {
             @Override
@@ -79,8 +90,8 @@ public class ExpressionPanel extends JPanel {
             }
         });
         //setting pop up
-        PopupFactory popFact =new PopupFactory();
-        JPanel popupPanel = new JPanel();
+        popFact =new PopupFactory();
+        popupPanel = new JPanel();
         popupPanel.setLayout(new BoxLayout(popupPanel,BoxLayout.Y_AXIS));
         //add more pieces func:
         JButton plus = new JButton("+");
@@ -123,8 +134,8 @@ public class ExpressionPanel extends JPanel {
             }
         });
         popupPanel.setSize(new Dimension(500,600));
-        Popup popPiece;
-        popPiece = popFact.getPopup(this,popupPanel,200,300);
+
+
         //ExpressionPanel p = new ExpressionPanel();
         /*inputPanel.setLayout(
                 new BoxLayout(inputPanel, BoxLayout.PAGE_AXIS)
@@ -173,6 +184,8 @@ public class ExpressionPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                // System.out.println("sdf "+pieceClick);
                 if(pieceClick == 1){
+                    //popPiece.show();
+                    popPiece = popFact.getPopup(mainPanel,popupPanel,200,300);
                     popPiece.show();
                     pieceClick = 0;
                 }else {
