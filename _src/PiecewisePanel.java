@@ -16,11 +16,18 @@ public class PiecewisePanel extends JPanel{
     String [] leftside = {"[","("};
     String [] rightside = {"]",")"};
     JLabel name;
+    String title;
+    JLabel point;
+    JLabel label;
 
     PiecewisePanel(Color color,int Id){
-        name = new JLabel(Integer.toString(Id));
+
 
         //name.setText(Integer.toString(Id));
+        title = "Piece func"+ Integer.toString(Id);
+        label = new JLabel("in");
+        name = new JLabel(title);
+        point = new JLabel(",");
         this.color = color;
         funcPiece = new JTextField();
         funcPiece.setPreferredSize(new Dimension(60, 20));
@@ -72,9 +79,15 @@ public class PiecewisePanel extends JPanel{
         this.add(funcPiece,wholeStyle);
         wholeStyle.gridx = 2;
         wholeStyle.gridy = 1;
+        this.add(label,wholeStyle);
+        wholeStyle.gridx = 3;
+        wholeStyle.gridy = 1;
         this.add(domainLeftIn,wholeStyle);
         //this.add(leftBracket,wholeStyle);
-        wholeStyle.gridx = 3;
+        wholeStyle.gridx = 4;
+        wholeStyle.gridy = 1;
+        this.add(point,wholeStyle);
+        wholeStyle.gridx = 5;
         wholeStyle.gridy = 1;
         this.add(domainRightIn,wholeStyle);
         //this.add(domainLeftIn,wholeStyle);
