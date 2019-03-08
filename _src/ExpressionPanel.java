@@ -103,7 +103,7 @@ public class ExpressionPanel extends JPanel {
                 if(pieceCount == 5){
                     numAlert.setText("Already to maximum piecewise function");
                 }else{
-                    PiecewisePanel piece = new PiecewisePanel(color);
+                    PiecewisePanel piece = new PiecewisePanel(color,pieceCount+1);
                     System.out.println("adding");
                     inputPanel.add(piece);
                     inputPanel.setVisible(true);
@@ -145,17 +145,20 @@ public class ExpressionPanel extends JPanel {
         GridBagConstraints constrain = new GridBagConstraints();
         constrain.gridx = 5;
         constrain.gridy = 0;
-        basicXrange.add(inputDialog,constrain);
+        basicXrange.add(staticLabel,constrain);
         constrain.gridx = 10;
         constrain.gridy = 0;
-        basicXrange.add(leftBracket,constrain);
+        basicXrange.add(inputDialog,constrain);
         constrain.gridx = 15;
         constrain.gridy = 0;
+        basicXrange.add(leftBracket,constrain);
+        constrain.gridx = 25;
+        constrain.gridy = 0;
         basicXrange.add(domainLeftIn,constrain);
-        constrain.gridx = 70;
+        constrain.gridx = 35;
         constrain.gridy = 0;
         basicXrange.add(domainRightIn,constrain);
-        constrain.gridx = 140;
+        constrain.gridx = 50;
         constrain.gridy = 0;
         basicXrange.add(rightBracket,constrain);
         /*constrain.gridx = 5;
@@ -164,7 +167,7 @@ public class ExpressionPanel extends JPanel {
         constrain.gridx = 10;
         constrain.gridy = 1;
         inputPanel.add(minus,constrain);*/
-        inputPanel.add(staticLabel);
+        //inputPanel.add(staticLabel);
         inputPanel.add(basicXrange);
         popupPanel.add(inputPanel);
         popupPanel.add(plus);

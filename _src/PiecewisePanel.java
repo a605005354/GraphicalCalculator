@@ -15,24 +15,30 @@ public class PiecewisePanel extends JPanel{
     JComboBox rightBracket;
     String [] leftside = {"[","("};
     String [] rightside = {"]",")"};
+    JLabel name;
 
-    PiecewisePanel(Color color){
+    PiecewisePanel(Color color,int Id){
+        name = new JLabel(Integer.toString(Id));
+
+        //name.setText(Integer.toString(Id));
         this.color = color;
         funcPiece = new JTextField();
-        this.setSize(new Dimension(200, 50));
+        funcPiece.setPreferredSize(new Dimension(60, 20));
+
+        this.setSize(new Dimension(600, 200));
         interval = new Interval(0,0,false,false);
         JTextField domainLeftIn = new JTextField();
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
         JTextField domainRightIn = new JTextField();
         domainRightIn.setPreferredSize(new Dimension(50, 20));
 
-        final JComboBox leftBracket = new JComboBox(leftside);
+        /*final JComboBox leftBracket = new JComboBox(leftside);
         leftBracket.setSelectedIndex(0);
         leftBracket.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(leftside[leftBracket.getSelectedIndex()]);
-                if(leftBracket.getSelectedIndex() == 0){
+                /*if(leftBracket.getSelectedIndex() == 0){
                     interval.setLeftOpen(false);
                 }else {
                     interval.setLeftOpen(true);
@@ -47,31 +53,37 @@ public class PiecewisePanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(rightside[rightBracket.getSelectedIndex()]);
-                if(rightBracket.getSelectedIndex() == 0){
+                /*if(rightBracket.getSelectedIndex() == 0){
                     interval.setRightOpen(false);
                 }else {
                     interval.setRightOpen(true);
 
                 }
             }
-        });
+        });*/
         GridBagConstraints wholeStyle = new GridBagConstraints();
+
         wholeStyle.insets = new Insets(10,10,10,10);
         wholeStyle.gridx = 1;
         wholeStyle.gridy = 0;
-        this.add(funcPiece,wholeStyle);
+        this.add(name,wholeStyle);
         wholeStyle.gridx = 1;
         wholeStyle.gridy = 1;
-        this.add(leftBracket,wholeStyle);
+        this.add(funcPiece,wholeStyle);
         wholeStyle.gridx = 2;
         wholeStyle.gridy = 1;
         this.add(domainLeftIn,wholeStyle);
-        wholeStyle.gridx = 1;
+        //this.add(leftBracket,wholeStyle);
+        wholeStyle.gridx = 3;
+        wholeStyle.gridy = 1;
+        this.add(domainRightIn,wholeStyle);
+        //this.add(domainLeftIn,wholeStyle);
+        /*wholeStyle.gridx = 1;
         wholeStyle.gridy = 2;
         this.add(domainRightIn,wholeStyle);
         wholeStyle.gridx = 2;
-        wholeStyle.gridy = 2;
-        this.add(rightBracket,wholeStyle);
+        wholeStyle.gridy = 2;*/
+        //this.add(rightBracket,wholeStyle);
         this.setVisible(true);
         this.repaint();
 
