@@ -173,11 +173,16 @@ public class Driver {
         plotButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               // String input ;
+
+                //multipleFunc[0].partFunctrees.add(0,parser.getFunctionTree());
                 for(int i =0; i < multipleFunc.length;i++){
+                    String input ;
                     if(multipleFunc[i] == null){
                         continue;
                     }
-                    String input = multipleFunc[i].inputDialog.getText();
+
+                    input = multipleFunc[i].inputDialog.getText();
                     Parser parser=new Parser(input);
                     parser.parse();
                     FunctionTree result = parser.getFunctionTree() ;

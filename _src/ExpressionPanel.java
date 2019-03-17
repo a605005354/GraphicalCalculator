@@ -59,6 +59,8 @@ public class ExpressionPanel extends JPanel {
         //this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         this.setLayout(new GridBagLayout());
         this.isPiece = false;
+        partFunctrees = new ArrayList<FunctionTree>();
+        partIntervals = new ArrayList<Interval>();
 
         //input area:
         JLabel indiclabel = new JLabel("Enter Function here:");
@@ -116,8 +118,8 @@ public class ExpressionPanel extends JPanel {
         JButton confirm = new JButton("confirm");
         confirm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                partFunctrees = new ArrayList<FunctionTree>();
-                partIntervals = new ArrayList<Interval>();
+               // partFunctrees = new ArrayList<FunctionTree>();
+                //partIntervals = new ArrayList<Interval>();
                 //if(pieces[0] == null){
                     try{
                         //System.out.println(domainLeftIn.getText());
@@ -142,11 +144,8 @@ public class ExpressionPanel extends JPanel {
 
                 double leftp;
                 double rightp;
-<<<<<<< HEAD
                 Parser parsePiece ;
-=======
-                Parser parsePiece;
->>>>>>> 2ef49cd836d9b6d5a79812c4c369f08be6940d47
+
                 for(int i = 0; i < pieceCount ; i++) {
                     if(pieces[i].funcPiece.getText() == null){
                         continue;
@@ -172,13 +171,7 @@ public class ExpressionPanel extends JPanel {
                     partFunctrees.add(parsePiece.getFunctionTree());
                 }
 
-<<<<<<< HEAD
 
-
-
-
-
-=======
                 boolean hasOverlap=false;
                 for(int i = 0; i < partIntervals.size(); i++){
                     for(int j=i+1; j< partIntervals.size(); j++){
@@ -192,7 +185,7 @@ public class ExpressionPanel extends JPanel {
                     popPiece.hide();
                     pieceClick = 1;
                 }
->>>>>>> 2ef49cd836d9b6d5a79812c4c369f08be6940d47
+
             }
         });
 
