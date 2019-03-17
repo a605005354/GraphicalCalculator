@@ -145,7 +145,10 @@ public class ExpressionPanel extends JPanel {
                 double leftp;
                 double rightp;
                 Parser parsePiece ;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ed43aa5b7da7306d20f389defd816217b52a1b33
                 for(int i = 0; i < pieceCount ; i++) {
                     if(pieces[i].funcPiece.getText() == null){
                         continue;
@@ -171,7 +174,10 @@ public class ExpressionPanel extends JPanel {
                     partFunctrees.add(parsePiece.getFunctionTree());
                 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ed43aa5b7da7306d20f389defd816217b52a1b33
                 boolean hasOverlap=false;
                 for(int i = 0; i < partIntervals.size(); i++){
                     for(int j=i+1; j< partIntervals.size(); j++){
@@ -185,7 +191,10 @@ public class ExpressionPanel extends JPanel {
                     popPiece.hide();
                     pieceClick = 1;
                 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ed43aa5b7da7306d20f389defd816217b52a1b33
             }
         });
 
@@ -386,23 +395,23 @@ public class ExpressionPanel extends JPanel {
     void setInputText(String input){
         inputDialog.setText(input);
     }
-    void plotPiece(FunctionPanel functionPanel){
-        Parser parser;
-        for (int i = 0; i < 5;i++){
-            if(pieces[i]== null){
-                break;
-            }
-            //// TODO: 2019/3/1
-            //pass interval of each function to backend, backend need to revise function necessary parameter
-            parser=new Parser(pieces[i].getInputFunction().getText());
-            parser.parse();
-            FunctionTree result = parser.getFunctionTree();
-            ((FunctionPanel) functionPanel).setFunctionTree(result);
-            ((FunctionPanel) functionPanel).functionSet=true;
-
-        }
-        functionPanel.repaint();
-    }
+//    void plotPiece(FunctionPanel functionPanel){
+//        Parser parser;
+//        for (int i = 0; i < 5;i++){
+//            if(pieces[i]== null){
+//                break;
+//            }
+//            //// TODO: 2019/3/1
+//            //pass interval of each function to backend, backend need to revise function necessary parameter
+//            parser=new Parser(pieces[i].getInputFunction().getText());
+//            parser.parse();
+//            FunctionTree result = parser.getFunctionTree();
+//           // ((FunctionPanel) functionPanel).setFunctionTree(result);
+//            ((FunctionPanel) functionPanel).functionSet=true;
+//
+//        }
+//        functionPanel.repaint();
+//    }
 
 
 

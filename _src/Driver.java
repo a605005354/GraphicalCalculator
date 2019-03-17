@@ -16,7 +16,7 @@ public class Driver {
         final ExpressionPanel multipleFunc[] = new ExpressionPanel[10];
         functionInfo = new FunctionInfo();
         oriInputPanel = new ExpressionPanel(mainFrame,funcCount);
-        multipleFunc[1] = oriInputPanel;
+        multipleFunc[0] = oriInputPanel;
 
 
         //ALL panel

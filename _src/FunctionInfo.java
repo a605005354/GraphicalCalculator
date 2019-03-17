@@ -6,7 +6,7 @@ public class FunctionInfo {
     private ArrayList<ArrayList<Interval>> intervals;
     private ArrayList<ArrayList<FunctionTree>> functionTrees;
     private ArrayList<Color> colors;
-    private  boolean [] isPieceWise;
+    public boolean [] isPieceWise;
 
     public FunctionInfo(ArrayList<ArrayList<Interval>> intervals, ArrayList<ArrayList<FunctionTree>> functionTrees, ArrayList<Color> colors) {
         this.intervals = intervals ;
