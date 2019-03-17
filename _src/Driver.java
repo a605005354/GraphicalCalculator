@@ -13,7 +13,7 @@ public class Driver {
     static ExpressionPanel oriInputPanel;
     public static void main(String[] args) {
         final JFrame mainFrame =new JFrame();
-        final ExpressionPanel multipleFunc[] = new ExpressionPanel[5];
+        final ExpressionPanel multipleFunc[] = new ExpressionPanel[10];
         functionInfo = new FunctionInfo();
         oriInputPanel = new ExpressionPanel(mainFrame,funcCount);
         multipleFunc[1] = oriInputPanel;
@@ -173,21 +173,22 @@ public class Driver {
         plotButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(multipleFunc[1] == null){
-                    String input = oriInputPanel.getInputFunc();
+                for(int i =0; i < multipleFunc.length;i++){
+                    if(multipleFunc[i] == null){
+                        continue;
+                    }
+                    String input = multipleFunc[i].inputDialog.getText();
                     Parser parser=new Parser(input);
                     parser.parse();
+                    FunctionTree result = parser.getFunctionTree() ;
+                    multipleFunc[i].partFunctrees.add(0,result);
+                    functionInfo.getFunctionTrees().add(i,multipleFunc[i].partFunctrees);
+                    functionInfo.getIntervals().add(i,multipleFunc[i].partIntervals);
+                    functionInfo.getColors().add(i,multipleFunc[i].color);
+                }
+                ((FunctionPanel)functionPanel).repaint();
+                /*if(multipleFunc[1] == null){
 
-                    //Interval [] interval= new Interval();
-                    FunctionTree result = parser.getFunctionTree();
-                    functionInfo.getIntervals().add(multipleFunc[0].allInterval);
-                    functionInfo.getIntervals().add(multipleFunc[0].allfunctree);
-                    functionInfo.getColors().add(multipleFunc[0].color);
-                    //functionInfo.add(multipleFunc[0].allInterval[0],multipleFunc[0].allfunctree[0],multipleFunc[0].color,0);
-                    //functionInfo.getIntervals().add(0,multipleFunc[0].allInterval);
-                    //functionInfo.getColors().add(0,multipleFunc[0].color);
-
-                    //((FunctionPanel)functionPanel).repaint();
                 }else{ //multiple function
                     /*for(int i =0; i < 5;i++){
                         if(multipleFunc[i] == null){
@@ -199,13 +200,13 @@ public class Driver {
                         FunctionTree result;
                         for(int j =0;j < 5;j++){
                             result = parser.getFunctionTree();
-                        }*/
+                        }
 
                         //((FunctionPanel) functionPanel).setFunctionTree(result);
                         //((FunctionPanel) functionPanel).functionSet=true;
                         //multipleFunc[i].plotPiece(((FunctionPanel) functionPanel));
                     }
-                ((FunctionPanel)functionPanel).repaint();
+                ((FunctionPanel)functionPanel).repaint();*/
 
                 }
 

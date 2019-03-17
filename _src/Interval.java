@@ -10,8 +10,6 @@ public class Interval {
     public Interval(double left, double right, boolean leftInfi, boolean rightInfi) {
         this.left = left;
         this.right = right;
-//        this.leftOpen = leftOpen;
-//        this.rightOpen = rightOpen;
         this.leftInfi=leftInfi;
         this.rightInfi=rightInfi;
     }

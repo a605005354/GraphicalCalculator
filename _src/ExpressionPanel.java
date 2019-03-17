@@ -16,13 +16,15 @@ public class ExpressionPanel extends JPanel {
     JTextField inputDialog;
     public int flag =0;
     int pieceCount = 0;
-    Interval allInterval [] = new Interval[7];
-    FunctionTree allfunctree[] = new FunctionTree[7];
+    ArrayList<FunctionTree> partFunctrees;
+    ArrayList<Interval> partIntervals;
+
 
     double left;
     double right;
     boolean leftOpen;
     boolean rightOpen;
+    boolean isPiece;
     PiecewisePanel pieces[] ;
     JLabel numAlert = new JLabel("Maximum piecewise : 5");
     JFrame mainPanel;
@@ -38,7 +40,7 @@ public class ExpressionPanel extends JPanel {
     JComboBox rightBracket;
     String [] leftside = {"[","("};
     String [] rightside = {"]",")"};
-
+    String [] colors = {"Black","Blue","Red","Yellow"};
     ExpressionPanel(final JFrame mainPanel,int id){
         //inputPanel: panel in popup
         this.Id = id;
@@ -48,6 +50,7 @@ public class ExpressionPanel extends JPanel {
         inputPanel.setSize(400,400);
         //this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         this.setLayout(new GridBagLayout());
+        this.isPiece = false;
 
         //input area:
         JLabel indiclabel = new JLabel("Enter Function here:");
@@ -65,8 +68,6 @@ public class ExpressionPanel extends JPanel {
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
         final JTextField domainRightIn = new JTextField();
         domainRightIn.setPreferredSize(new Dimension(50, 20));
-        /*String [] leftside = {"[","("};
-        String [] rightside = {"]",")"};*/
         leftBracket = new JComboBox(leftside);
         leftBracket.setSelectedIndex(0);
         leftBracket.addActionListener(new ActionListener() {
@@ -107,6 +108,8 @@ public class ExpressionPanel extends JPanel {
         JButton set = new JButton("confirm");
         set.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                partFunctrees = new ArrayList<FunctionTree>();
+                partIntervals = new ArrayList<Interval>();
                 //if(pieces[0] == null){
                     try{
                         left = Double.parseDouble(domainLeftIn.getText());
@@ -122,32 +125,36 @@ public class ExpressionPanel extends JPanel {
                         rightInf = true;
                         right = 0;
                     }
-                    allInterval[0] = new Interval(left,right,leftInf,rightInf);
+                    partIntervals.add(new Interval(left,right,leftInf,rightInf));
                     Parser parser = new Parser(inputDialog.getText());
-                    allfunctree[0] = parser.getFunctionTree();
+                    partFunctrees.add(parser.getFunctionTree());
                 //}
-                int i = 0;
+
                 double leftp;
                 double rightp;
                 Parser parsePiece;
-                while(pieces[i] != null){
+                for(int i = 0; i < pieces.length ; i++) {
+                    if(pieces[i].funcPiece.getText() == null){
+                        continue;
+                    }
+
                     try{
                         leftp = Double.parseDouble(pieces[i].getLeft());
                         leftInf = false;
-                    }catch (NullPointerException n){
+                    }catch (Exception n){
                         leftInf = true;
-                        left = 0;
+                        leftp = 0;
                     }
                     try{
-                        right = Double.parseDouble(pieces[i].getRight());
+                        rightp = Double.parseDouble(pieces[i].getRight());
                         rightInf = false;
-                    }catch (NullPointerException n){
+                    }catch (Exception n){
                         rightInf = true;
-                        right = 0;
+                        rightp = 0;
                     }
-                    allInterval[i] = new Interval(left,right,leftInf,rightInf);
+                    partIntervals.add(new Interval(leftp,rightp,leftInf,rightInf));
                     parsePiece = new Parser(pieces[i].getInputFunction().getText());
-                    allfunctree[i+1] = parsePiece.getFunctionTree();
+                    partFunctrees.add(parsePiece.getFunctionTree());
                 }
 
 
@@ -272,8 +279,8 @@ public class ExpressionPanel extends JPanel {
         //popupPanel.add(rightBracket);
 
         //button 2: set color:
-        String [] colors = {"Black","Blue","Red","Yellow"};
-        JComboBox setColor = new JComboBox(colors);
+        //final String [] colors = {"Black","Blue","Red","Yellow"};
+        final JComboBox setColor = new JComboBox(colors);
         setColor.setSelectedIndex(0);
         setColor.addActionListener(new ActionListener() {
             @Override
@@ -352,7 +359,7 @@ public class ExpressionPanel extends JPanel {
             }
             //// TODO: 2019/3/1
             //pass interval of each function to backend, backend need to revise function necessary parameter
-            parser=new Parser(pieces[i].getInputFunction());
+            parser=new Parser(pieces[i].getInputFunction().getText());
             parser.parse();
             FunctionTree result = parser.getFunctionTree();
             ((FunctionPanel) functionPanel).setFunctionTree(result);
