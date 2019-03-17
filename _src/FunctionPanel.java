@@ -31,18 +31,21 @@ public class FunctionPanel extends JPanel {
         return new Dimension(LENGTH,HEIGHT);
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if(functionSet){
-            if(aimx == 0.0 && aimy == 0.0){
+        if (functionSet) {
+            if (aimx == 0.0 && aimy == 0.0) {
                 int fntracker = fninfo.getFunctionTrees().size();
-                double start = -defScale/2;
-                double seperate = defScale/ LENGTH;
-                for(int k = 0; k < fntracker; k++){
-                    if(fninfo.isPieceWise[k] == false){
+                double start = -defScale / 2;
+                double seperate = defScale / LENGTH;
+                for (int k = 0; k < fntracker; k++) {
+                    if (fninfo.isPieceWise[k] == false) {
                         FunctionTree fnt = fninfo.getFunctionTrees().get(k).get(0);
+                        if(fnt == null){
+                            continue;
+                        }else{
                         Color color = fninfo.getColors().get(k);
-                        for(int i = 0; i < LENGTH; i+=1) {
+                        for (int i = 0; i < LENGTH; i += 1) {
                             double x = start + i * seperate;
                             double y = fnt.value(x);
                             double x5 = start + (i + 1) * seperate;
@@ -73,61 +76,64 @@ public class FunctionPanel extends JPanel {
                             //System.out.println("this is y: " + y + " this is y5: " + y5);
                             drawline(new PixelPoint(i, j), new PixelPoint(i + 1, j5), color, g);
                             // System.out.printf("%d,%d\n",j, j5);
+                            }
                         }
-                    }
-                    else{
+                    } else {
                         int piecesamt = fninfo.getFunctionTrees().get(k).size();
                         Color color = fninfo.getColors().get(k);
-                        for(int i = 0; i < piecesamt; i++){
+                        for (int i = 0; i < piecesamt; i++) {
                             FunctionTree fnt = fninfo.getFunctionTrees().get(k).get(i);
-                            Interval itv = fninfo.getIntervals().get(k).get(i);
-                            double left = itv.getLeft();
-                            double right = itv.getRight();
-                            boolean leftinf = itv.isLeftInfi();
-                            boolean rightinf = itv.isRightInfi();
-                            if(leftinf){
-                                left = Double.MIN_VALUE;
-                            }
-                            if(rightinf){
-                                left = Double.MAX_VALUE;
-                            }
-                            for(int  m= 0; m < LENGTH; m+=1) {
-                                double x = start + m * seperate;
-                                if(x > left && x < right){
-                                    double y = fnt.value(x);
-                                    double x5 = start + (m + 1) * seperate;
-                                    double y5 = fnt.value(x5);
-                                    if (Double.isNaN(y) || Double.isNaN(y5)) {
-                                        continue;
-                                    }
-                                    if (y > y5 && (fnt.value(x) < fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) < fnt.value(x5))) {
-                                        int newj = pointToPixel(new Point(x, y)).getJ();
-                                        int newj5 = pointToPixel(new Point(x5, y5)).getJ();
-                                        drawline(new PixelPoint(m, newj), new PixelPoint(m, 0), color, g);
-                                        drawline(new PixelPoint(m + 1, newj5), new PixelPoint(m + 1, 800), color, g);
-                                        continue;
-                                    }
-                                    if (y < y5 && (fnt.value(x) > fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) > fnt.value(x5))) {
-                                        int newj = pointToPixel(new Point(x, y)).getJ();
-                                        int newj5 = pointToPixel(new Point(x5, y5)).getJ();
-                                        drawline(new PixelPoint(m, newj), new PixelPoint(m, 800), color, g);
-                                        drawline(new PixelPoint(m + 1, newj5), new PixelPoint(m + 1, 0), color, g);
-                                        continue;
-                                    }
-                                    if (Double.isInfinite(y) || Double.isInfinite(y5)) {
-                                        continue;
-                                    }
-                                    int j = pointToPixel(new Point(x, y)).getJ();
-                                    int j5 = pointToPixel(new Point(x5, y5)).getJ();
+                            if(fnt == null){
+                                continue;
+                            }else {
+                                Interval itv = fninfo.getIntervals().get(k).get(i);
+                                double left = itv.getLeft();
+                                double right = itv.getRight();
+                                boolean leftinf = itv.isLeftInfi();
+                                boolean rightinf = itv.isRightInfi();
+                                if (leftinf) {
+                                    left = Double.MIN_VALUE;
+                                }
+                                if (rightinf) {
+                                    left = Double.MAX_VALUE;
+                                }
+                                for (int m = 0; m < LENGTH; m += 1) {
+                                    double x = start + m * seperate;
+                                    if (x > left && x < right) {
+                                        double y = fnt.value(x);
+                                        double x5 = start + (m + 1) * seperate;
+                                        double y5 = fnt.value(x5);
+                                        if (Double.isNaN(y) || Double.isNaN(y5)) {
+                                            continue;
+                                        }
+                                        if (y > y5 && (fnt.value(x) < fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) < fnt.value(x5))) {
+                                            int newj = pointToPixel(new Point(x, y)).getJ();
+                                            int newj5 = pointToPixel(new Point(x5, y5)).getJ();
+                                            drawline(new PixelPoint(m, newj), new PixelPoint(m, 0), color, g);
+                                            drawline(new PixelPoint(m + 1, newj5), new PixelPoint(m + 1, 800), color, g);
+                                            continue;
+                                        }
+                                        if (y < y5 && (fnt.value(x) > fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) > fnt.value(x5))) {
+                                            int newj = pointToPixel(new Point(x, y)).getJ();
+                                            int newj5 = pointToPixel(new Point(x5, y5)).getJ();
+                                            drawline(new PixelPoint(m, newj), new PixelPoint(m, 800), color, g);
+                                            drawline(new PixelPoint(m + 1, newj5), new PixelPoint(m + 1, 0), color, g);
+                                            continue;
+                                        }
+                                        if (Double.isInfinite(y) || Double.isInfinite(y5)) {
+                                            continue;
+                                        }
+                                        int j = pointToPixel(new Point(x, y)).getJ();
+                                        int j5 = pointToPixel(new Point(x5, y5)).getJ();
 //                paintPixel(new PixelPoint(i,j), Color.black, g);
-                                    //System.out.println("this is y: " + y + " this is y5: " + y5);
-                                    drawline(new PixelPoint(m, j), new PixelPoint(m + 1, j5), color, g);
-                                }
-                                else{
-                                    continue;
-                                }
+                                        //System.out.println("this is y: " + y + " this is y5: " + y5);
+                                        drawline(new PixelPoint(m, j), new PixelPoint(m + 1, j5), color, g);
+                                    } else {
+                                        continue;
+                                    }
 
-                                // System.out.printf("%d,%d\n",j, j5);
+                                    // System.out.printf("%d,%d\n",j, j5);
+                                }
                             }
                         }
                     }
@@ -137,85 +143,138 @@ public class FunctionPanel extends JPanel {
 
                 }
 
-                for(int i = 0; i < LENGTH; i++){
-                    paintPixel(new PixelPoint(i,LENGTH/2), Color.black, g);
-                    paintPixel(new PixelPoint(HEIGHT/2,i), Color.black, g);
-                    if(i%20 == 0){
-                        for(int j = 0; j < HEIGHT; j++){
-                            if(j%5 == 0){
-                                paintPixel(new PixelPoint(i,j), Color.black, g);
-                                paintPixel(new PixelPoint(j,i), Color.black, g);
+                for (int i = 0; i < LENGTH; i++) {
+                    paintPixel(new PixelPoint(i, LENGTH / 2), Color.black, g);
+                    paintPixel(new PixelPoint(HEIGHT / 2, i), Color.black, g);
+                    if (i % 20 == 0) {
+                        for (int j = 0; j < HEIGHT; j++) {
+                            if (j % 5 == 0) {
+                                paintPixel(new PixelPoint(i, j), Color.black, g);
+                                paintPixel(new PixelPoint(j, i), Color.black, g);
                             }
                         }
                     }
                 }
 
-                for(int i = 0; i < HEIGHT; i++){
-                    if(i%80 == 0){
-                        double lab = i/(HEIGHT/defScale) - defScale/2;
+                for (int i = 0; i < HEIGHT; i++) {
+                    if (i % 80 == 0) {
+                        double lab = i / (HEIGHT / defScale) - defScale / 2;
                         String Label = Double.toString(lab);
-                        if (Label.length() > 3){
+                        if (Label.length() > 3) {
                             lab = Double.parseDouble(String.format("%.5f", lab));
                             Label = Double.toString(lab);
                         }
-                        addLabel(Label,i,HEIGHT/2,g);
-                        addLabel(Label,LENGTH/2,HEIGHT-i,g);
+                        addLabel(Label, i, HEIGHT / 2, g);
+                        addLabel(Label, LENGTH / 2, HEIGHT - i, g);
                     }
                 }
-                /*if(line != -1){
-                    drawline(new PixelPoint(line,0), new PixelPoint(line,800), Color.black, g);
-                    for(int ii = 0; ii < treetracker; ii++){
-                        double x = start + line * seperate;
-                        double y = functionTree[ii].value(x);
-                        int j = pointToPixel(new Point(x, y)).getJ();
-                        drawdot(y, new PixelPoint(line,j), Color.black, g);
+                if (line != -1) {
+                    drawline(new PixelPoint(line, 0), new PixelPoint(line, 800), Color.black, g);
+                    int fntrack = fninfo.getFunctionTrees().size();
+                    for (int ii = 0; ii < fntrack; ii++) {
+                        if (fninfo.isPieceWise[ii] == false) {
+                            FunctionTree fn = fninfo.getFunctionTrees().get(ii).get(0);
+                            double x = start + line * seperate;
+                            double y = fn.value(x);
+                            int j = pointToPixel(new Point(x, y)).getJ();
+                            drawdot(y, new PixelPoint(line, j), Color.black, g);
+                        }
+                        else{
+                            int count = fninfo.getFunctionTrees().get(ii).size();
+                            for (int a = 0; a < count; a++) {
+                                Interval itv = fninfo.getIntervals().get(ii).get(a);
+                                double x = start + line * seperate;
+                                FunctionTree fn = fninfo.getFunctionTrees().get(ii).get(a);
+                                double left = itv.getLeft();
+                                double right = itv.getRight();
+                                boolean leftinf = itv.isLeftInfi();
+                                boolean rightinf = itv.isRightInfi();
+                                if (leftinf) {
+                                    left = Double.MIN_VALUE;
+                                }
+                                if (rightinf) {
+                                    left = Double.MAX_VALUE;
+                                }
+                                if(x > left && x < right){
+                                    double y = fn.value(x);
+                                    int j = pointToPixel(new Point(x, y)).getJ();
+                                    drawdot(y, new PixelPoint(line, j), Color.black, g);
+                                }
+                                else{
+                                    continue;
+                                }
+                            }
+                        }
                     }
                 }
-                if(findYflag == true){
+                if (findYflag == true) {
                     int globj = 0;
-                    for(int j = 0; j < LENGTH; j++){
-                        double left = start + j*seperate;
-                        double right = start + (j+1)* seperate;
-                        if(findYx >= left && findYx <= right){
-                            drawline(new PixelPoint(j,0), new PixelPoint(j,800), Color.black, g);
+                    for (int j = 0; j < LENGTH; j++) {
+                        double left = start + j * seperate;
+                        double right = start + (j + 1) * seperate;
+                        if (findYx >= left && findYx <= right) {
+                            drawline(new PixelPoint(j, 0), new PixelPoint(j, 800), Color.black, g);
                             globj = j;
                         }
                     }
-                    for(int ii = 0; ii < treetracker; ii++){
-                        double y = functionTree[ii].value(findYx);
-                        int j = pointToPixel(new Point(globj, y)).getJ();
-                        drawdot(y, new PixelPoint(globj,j), Color.black, g);
+                    int fntrack = fninfo.getFunctionTrees().size();
+                    for (int ii = 0; ii < fntrack; ii++) {
+                        if (fninfo.isPieceWise[ii] == false) {
+                            FunctionTree fn = fninfo.getFunctionTrees().get(ii).get(0);
+                            double y = fn.value(findYx);
+                            int j = pointToPixel(new Point(globj, y)).getJ();
+                            drawdot(y, new PixelPoint(globj, j), Color.black, g);
+                        } else {
+                            int count = fninfo.getFunctionTrees().get(ii).size();
+                            for (int a = 0; a < count; a++) {
+                                double x = start + findYx * seperate;
+                                Interval itv = fninfo.getIntervals().get(ii).get(a);
+                                FunctionTree fn = fninfo.getFunctionTrees().get(ii).get(a);
+                                double left = itv.getLeft();
+                                double right = itv.getRight();
+                                boolean leftinf = itv.isLeftInfi();
+                                boolean rightinf = itv.isRightInfi();
+                                if (leftinf) {
+                                    left = Double.MIN_VALUE;
+                                }
+                                if (rightinf) {
+                                    left = Double.MAX_VALUE;
+                                }
+                                if (x > left && x < right) {
+                                    double y = fn.value(findYx);
+                                    int j = pointToPixel(new Point(globj, y)).getJ();
+                                    drawdot(y, new PixelPoint(globj, j), Color.black, g);
+                                } else {
+                                    continue;
+                                }
+                            }
+                        }
                     }
-                }*/
-            }
-            else{
-                boolean originxPosition = true; // true for originx still in the graph
-                boolean originyPosition = true; // true for originy still in the graph
-                if(aimx > defScale/2){
-                    originxPosition = false;
-                }
-                if(aimy > defScale/2){
-                    originyPosition = false;
-                }
+                } else {
+                    boolean originxPosition = true; // true for originx still in the graph
+                    boolean originyPosition = true; // true for originy still in the graph
+                    if (aimx > defScale / 2) {
+                        originxPosition = false;
+                    }
+                    if (aimy > defScale / 2) {
+                        originyPosition = false;
+                    }
 
-                if(originxPosition == true && originyPosition == true){// case 1, where zero lies in side graph
-                    double separation = defScale/800;
+                    if (originxPosition == true && originyPosition == true) {// case 1, where zero lies in side graph
+                        double separation = defScale / 800;
+
+                    } else if (originxPosition == false && originyPosition == false) { // case 2, where zero lies not in the graph
+
+                    } else if (originxPosition == true && originyPosition == false) {  // case 3, where 0x lies in the graph but y not
+
+                    } else if (originxPosition == false && originyPosition == true) {  // case 4, where 0y lies in graph but x not
+
+                    } else {
+                        //something must be wrong here
+                    }
+                    // and then start drawing the function.
 
                 }
-                else if(originxPosition == false && originyPosition == false){ // case 2, where zero lies not in the graph
-
-                }
-                else if(originxPosition == true && originyPosition == false){  // case 3, where 0x lies in the graph but y not
-
-                }
-                else if(originxPosition == false && originyPosition == true){  // case 4, where 0y lies in graph but x not
-
-                }
-                else{
-                    //something must be wrong here
-                }
-                // and then start drawing the function.
-
             }
         }
     }
@@ -262,9 +321,9 @@ public class FunctionPanel extends JPanel {
         g.fillRect(p1.getI()-1,p1.getJ()-1,1,1);
         g.fillRect(p1.getI()-1,p1.getJ()+1,1,1);
         g.fillRect(p1.getI()+1,p1.getJ()-1,1,1);
-        g.setColor(Color.white);
+       // g.setColor(Color.white);
         g.fillRect(p1.getI()+1,p1.getJ(),1,1);
-        String yequal = "  y equals: ";
+        String yequal = "  y = ";
         String yvalue = Double.toString(y);
         String ytotal = yequal + yvalue;
         addLabel(ytotal, p1.getI(),p1.getJ(),g);

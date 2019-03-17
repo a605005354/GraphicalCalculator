@@ -1,8 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 
@@ -47,6 +46,19 @@ public class Driver {
 
         //all button:
         JButton plotButton = new JButton("Plot");
+        JButton mouseundo = new JButton("remove the line drawn by mouse");
+        JButton searchX = new JButton("Search");
+        JButton searchXundo = new JButton("Undo");
+        JLabel xsearch = new JLabel();
+        xsearch.setText("search y using x:");
+        JToggleButton man = new JToggleButton("activate manual x range");
+        JButton scaler = new JButton("use this domain");
+        JTextField xinput = new JTextField();
+        JTextField domainin = new JTextField();
+        xinput.setLayout(new BoxLayout(xinput, BoxLayout.X_AXIS));
+        xinput.setPreferredSize(new Dimension(100, 20));
+        domainin.setLayout(new BoxLayout(domainin, BoxLayout.X_AXIS));
+        domainin.setPreferredSize(new Dimension(100, 20));
         JButton addFunc = new JButton("+Add");
         addFunc.addActionListener(new ActionListener() {
             @Override
@@ -66,6 +78,13 @@ public class Driver {
 
             }
         });
+        mouseundo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ((FunctionPanel) functionPanel).undoCursorLine();
+                mainFrame.repaint();
+            }
+        });
         JButton minusFunc = new JButton(("-Delete"));
         minusFunc.addActionListener(new ActionListener() {
             @Override
@@ -80,6 +99,54 @@ public class Driver {
                 }else{
                     //no action
                 }
+            }
+        });
+        functionPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //super.mouseClicked(e);
+                System.out.println("this is get x" + e.getX());
+                ((FunctionPanel) functionPanel).setCursorLine(e.getX());
+                functionPanel.repaint();
+            }
+        });
+        man.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange() == ItemEvent.SELECTED){
+                    man.setText("deactivate manual x range");
+                    ((FunctionPanel) functionPanel).setscalebool();
+                }
+                if(e.getStateChange() == ItemEvent.DESELECTED){
+                    man.setText("activate manual x range");
+                    ((FunctionPanel) functionPanel).resetscalebool();
+                }
+            }
+        });
+        scaler.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String value = domainin.getText();
+                double xval = Double.parseDouble(value);
+                ((FunctionPanel) functionPanel).setscale(xval);
+                mainFrame.repaint();
+            }
+        });
+        searchX.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("search pushed");
+                String value = xinput.getText();
+                double xval = Double.parseDouble(value);
+                ((FunctionPanel) functionPanel).findY(xval);
+                mainFrame.repaint();
+            }
+        });
+        searchXundo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ((FunctionPanel) functionPanel).undofindY();
+                mainFrame.repaint();
             }
         });
         multifuncPanel.add(addFunc);
@@ -168,7 +235,30 @@ public class Driver {
         c.gridx = 2;
         c.gridy = 3;
         operatorPanel.add(powerButton, c);
-
+        c.gridx = 1;
+        c.gridy = 4;
+        operatorPanel.add(man, c);
+        c.gridx = 2;
+        c.gridy = 4;
+        operatorPanel.add(domainin, c);
+        c.gridx = 3;
+        c.gridy = 4;
+        operatorPanel.add(scaler, c);
+        c.gridx = 1;
+        c.gridy = 5;
+        operatorPanel.add(xsearch, c);
+        c.gridx = 2;
+        c.gridy = 5;
+        operatorPanel.add(xinput, c);
+        c.gridx = 3;
+        c.gridy = 5;
+        operatorPanel.add(searchX, c);
+        c.gridx = 4;
+        c.gridy = 5;
+        operatorPanel.add(searchXundo, c);
+        c.gridx = 1;
+        c.gridy = 6;
+        operatorPanel.add(mouseundo, c);
 
         //Plot button Action:
         plotButton.addActionListener(new ActionListener() {
@@ -178,8 +268,14 @@ public class Driver {
                 functionInfo = new FunctionInfo();
 
                 //multipleFunc[0].partFunctrees.add(0,parser.getFunctionTree());
-                for(int i =0; i < multipleFunc.length;i++){
+                for(int i =0; i < funcCount;i++){
                     String input ;
+                    try{
+                        multipleFunc[i].inputDialog.getText();
+                    }catch (Exception eq){
+                        continue;
+                    }
+
                     if(multipleFunc[i] == null || multipleFunc[i].inputDialog.getText() == null){
                         continue;
                     }
