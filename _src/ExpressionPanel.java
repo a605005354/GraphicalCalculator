@@ -2,21 +2,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by qier on 2019/2/12.
  */
 public class ExpressionPanel extends JPanel {
     private String inputFunction;
+    int Id;
     public Color color = Color.black;
     private int isClea = 0;
     int pieceClick = 1;
     JTextField inputDialog;
     public int flag =0;
     int pieceCount = 0;
-    Interval originalInt ;
-    float left;
-    float right;
+    Interval allInterval [] = new Interval[7];
+    FunctionTree allfunctree[] = new FunctionTree[7];
+
+    double left;
+    double right;
     boolean leftOpen;
     boolean rightOpen;
     PiecewisePanel pieces[] ;
@@ -25,6 +29,8 @@ public class ExpressionPanel extends JPanel {
     JPanel popupPanel;
     JPanel inputPanel;
     Popup popPiece;
+    boolean leftInf = true;
+    boolean rightInf = true;
 
     //popup &&&& combox
     PopupFactory popFact;
@@ -33,8 +39,9 @@ public class ExpressionPanel extends JPanel {
     String [] leftside = {"[","("};
     String [] rightside = {"]",")"};
 
-    ExpressionPanel(final JFrame mainPanel){
+    ExpressionPanel(final JFrame mainPanel,int id){
         //inputPanel: panel in popup
+        this.Id = id;
         inputPanel=new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
         this.mainPanel = mainPanel;
@@ -51,12 +58,12 @@ public class ExpressionPanel extends JPanel {
 
         //button 1: click to pop the piecewise
         pieces = new PiecewisePanel[5];
-        JButton pieceWise = new JButton("+xrange");
+        final JButton pieceWise = new JButton("+PieceWise");
         //Component inside the popup: originial components
         JLabel staticLabel = new JLabel("default:");
-        JTextField domainLeftIn = new JTextField();
+        final JTextField domainLeftIn = new JTextField();
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
-        JTextField domainRightIn = new JTextField();
+        final JTextField domainRightIn = new JTextField();
         domainRightIn.setPreferredSize(new Dimension(50, 20));
         /*String [] leftside = {"[","("};
         String [] rightside = {"]",")"};*/
@@ -65,6 +72,7 @@ public class ExpressionPanel extends JPanel {
         leftBracket.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 System.out.println(leftside[leftBracket.getSelectedIndex()]);
                 if(leftBracket.getSelectedIndex() == 0){
                     leftOpen = false;
@@ -96,6 +104,60 @@ public class ExpressionPanel extends JPanel {
         //add more pieces func:
         JButton plus = new JButton("+");
         JButton minus = new JButton("-");
+        JButton set = new JButton("confirm");
+        set.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //if(pieces[0] == null){
+                    try{
+                        left = Double.parseDouble(domainLeftIn.getText());
+                        leftInf = false;
+                    }catch (NullPointerException n){
+                        leftInf = true;
+                        left = 0;
+                    }
+                    try{
+                        right = Double.parseDouble(domainLeftIn.getText());
+                        rightInf = false;
+                    }catch (NullPointerException n){
+                        rightInf = true;
+                        right = 0;
+                    }
+                    allInterval[0] = new Interval(left,right,leftInf,rightInf);
+                    Parser parser = new Parser(inputDialog.getText());
+                    allfunctree[0] = parser.getFunctionTree();
+                //}
+                int i = 0;
+                double leftp;
+                double rightp;
+                Parser parsePiece;
+                while(pieces[i] != null){
+                    try{
+                        leftp = Double.parseDouble(pieces[i].getLeft());
+                        leftInf = false;
+                    }catch (NullPointerException n){
+                        leftInf = true;
+                        left = 0;
+                    }
+                    try{
+                        right = Double.parseDouble(pieces[i].getRight());
+                        rightInf = false;
+                    }catch (NullPointerException n){
+                        rightInf = true;
+                        right = 0;
+                    }
+                    allInterval[i] = new Interval(left,right,leftInf,rightInf);
+                    parsePiece = new Parser(pieces[i].getInputFunction().getText());
+                    allfunctree[i+1] = parsePiece.getFunctionTree();
+                }
+
+
+
+
+
+            }
+        });
+
+
         plus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -172,6 +234,7 @@ public class ExpressionPanel extends JPanel {
         popupPanel.add(inputPanel);
         popupPanel.add(plus);
         popupPanel.add(minus);
+        popupPanel.add(set);
         popupPanel.add(numAlert);
         popupPanel.setVisible(true);
         popupPanel.repaint();
@@ -219,6 +282,7 @@ public class ExpressionPanel extends JPanel {
 
                 switch (setColor.getSelectedIndex()){
                     case 0: color = Color.black;
+
                         break;
                     case 1: color = Color.cyan;
                         break;
@@ -273,6 +337,9 @@ public class ExpressionPanel extends JPanel {
     String getInputFunc(){
         return inputDialog.getText();
     }
+    double getLeft() {return left;}
+    double getRight(){return right;}
+
 
     void setInputText(String input){
         inputDialog.setText(input);

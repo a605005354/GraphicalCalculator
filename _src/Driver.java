@@ -8,11 +8,14 @@ import java.awt.event.ActionListener;
 public class Driver {
     //Temperate class to work as an entry
     static int funcCount = 1;
-    ExpressionPanel oriInputPanel;
+    //ExpressionPanel oriInputPanel;
+    static FunctionInfo functionInfo;
+    static ExpressionPanel oriInputPanel;
     public static void main(String[] args) {
         final JFrame mainFrame =new JFrame();
         final ExpressionPanel multipleFunc[] = new ExpressionPanel[5];
-        ExpressionPanel oriInputPanel = new ExpressionPanel(mainFrame);
+        functionInfo = new FunctionInfo();
+        oriInputPanel = new ExpressionPanel(mainFrame,funcCount);
         multipleFunc[1] = oriInputPanel;
 
 
@@ -37,7 +40,7 @@ public class Driver {
 
         //rightmost
         JPanel outputPanel=new JPanel();
-        JPanel functionPanel = new FunctionPanel();
+        final JPanel functionPanel = new FunctionPanel();
         JPanel layout = new JPanel();
         final JPanel multifuncPanel = new JPanel();
 
@@ -52,7 +55,7 @@ public class Driver {
                 }
                 funcCount++;
                 ContentPanel.remove(multifuncPanel);
-                ExpressionPanel newFunc = new ExpressionPanel(mainFrame);
+                ExpressionPanel newFunc = new ExpressionPanel(mainFrame,funcCount);
                 ContentPanel.add(newFunc);
                 multipleFunc[funcCount-1] = newFunc;
                 ContentPanel.add(multifuncPanel);
@@ -143,29 +146,40 @@ public class Driver {
                     String input = oriInputPanel.getInputFunc();
                     Parser parser=new Parser(input);
                     parser.parse();
+
+                    //Interval [] interval= new Interval();
                     FunctionTree result = parser.getFunctionTree();
-                    ((FunctionPanel) functionPanel).setFunctionTree(result);
-                    ((FunctionPanel) functionPanel).functionSet=true;
-                    functionPanel.repaint();
+                    functionInfo.getIntervals().add(multipleFunc[0].allInterval);
+                    functionInfo.getIntervals().add(multipleFunc[0].allfunctree);
+                    functionInfo.getColors().add(multipleFunc[0].color);
+                    //functionInfo.add(multipleFunc[0].allInterval[0],multipleFunc[0].allfunctree[0],multipleFunc[0].color,0);
+                    //functionInfo.getIntervals().add(0,multipleFunc[0].allInterval);
+                    //functionInfo.getColors().add(0,multipleFunc[0].color);
+
+                    //((FunctionPanel)functionPanel).repaint();
                 }else{ //multiple function
-                    for(int i =0; i < 5;i++){
+                    /*for(int i =0; i < 5;i++){
                         if(multipleFunc[i] == null){
                             continue;
                         }
                         String input = multipleFunc[i].getInputFunc();
                         Parser parser=new Parser(input);
                         parser.parse();
-                        FunctionTree result = parser.getFunctionTree();
-                        ((FunctionPanel) functionPanel).setFunctionTree(result);
-                        ((FunctionPanel) functionPanel).functionSet=true;
+                        FunctionTree result;
+                        for(int j =0;j < 5;j++){
+                            result = parser.getFunctionTree();
+                        }*/
+
+                        //((FunctionPanel) functionPanel).setFunctionTree(result);
+                        //((FunctionPanel) functionPanel).functionSet=true;
                         //multipleFunc[i].plotPiece(((FunctionPanel) functionPanel));
                     }
-                    functionPanel.repaint();
+                ((FunctionPanel)functionPanel).repaint();
 
                 }
 
 
-            }
+
         });
 
         //Operator Button Action:

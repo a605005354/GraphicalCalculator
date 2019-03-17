@@ -19,6 +19,8 @@ public class PiecewisePanel extends JPanel{
     String title;
     JLabel point;
     JLabel label;
+    JTextField domainLeftIn;
+    JTextField domainRightIn;
 
     PiecewisePanel(Color color,int Id){
 
@@ -34,10 +36,11 @@ public class PiecewisePanel extends JPanel{
 
         this.setSize(new Dimension(600, 200));
         interval = new Interval(0,0,false,false);
-        JTextField domainLeftIn = new JTextField();
+        domainLeftIn = new JTextField();
         domainLeftIn.setPreferredSize(new Dimension(50, 20));
-        JTextField domainRightIn = new JTextField();
+        domainRightIn = new JTextField();
         domainRightIn.setPreferredSize(new Dimension(50, 20));
+
 
         /*final JComboBox leftBracket = new JComboBox(leftside);
         leftBracket.setSelectedIndex(0);
@@ -104,8 +107,14 @@ public class PiecewisePanel extends JPanel{
 
     }
 
-    String getInputFunction(){
-        return inputFunction;
+    JTextField getInputFunction(){
+        return funcPiece;
+    }
+    String getLeft(){
+        return domainLeftIn.getText();
+    }
+    String getRight(){
+        return domainRightIn.getText();
     }
 
 

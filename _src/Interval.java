@@ -1,13 +1,13 @@
 public class Interval {
     //Represents an interval, open or close, finite or infinite.
-    private float left;
-    private float right;
+    private double left;
+    private double right;
 //    private boolean leftOpen;
 //    private boolean rightOpen;
     private boolean leftInfi;
     private boolean rightInfi;
 
-    public Interval(float left, float right, boolean leftInfi, boolean rightInfi) {
+    public Interval(double left, double right, boolean leftInfi, boolean rightInfi) {
         this.left = left;
         this.right = right;
 //        this.leftOpen = leftOpen;
@@ -45,11 +45,11 @@ public class Interval {
         return false;
     }
 
-    public float getLeft() {
+    public double getLeft() {
         return left;
     }
 
-    public float getRight() {
+    public double getRight() {
         return right;
     }
 

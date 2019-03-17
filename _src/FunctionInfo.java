@@ -3,11 +3,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FunctionInfo {
-    private ArrayList<ArrayList<Interval>> intervals;
-    private ArrayList<ArrayList<FunctionTree>> functionTrees;
+    private ArrayList<Interval []> intervals;
+    private ArrayList<FunctionTree []> functionTrees;
     private ArrayList<Color> colors;
 
-    public FunctionInfo(ArrayList<ArrayList<Interval>> intervals, ArrayList<ArrayList<FunctionTree>> functionTrees, ArrayList<Color> colors) {
+    public FunctionInfo(ArrayList<Interval []> intervals, ArrayList<FunctionTree []> functionTrees, ArrayList<Color> colors) {
         this.intervals = intervals;
         this.functionTrees = functionTrees;
         this.colors = colors;
