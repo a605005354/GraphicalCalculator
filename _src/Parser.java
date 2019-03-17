@@ -22,7 +22,7 @@ public class Parser {
         if (operator.equals("plus") || operator.equals("minus") || operator.equals("multiply") || operator.equals("divide")
                 || operator.equals("sin") || operator.equals("cos") || operator.equals("tan") || operator.equals("log") ||
                 operator.equals("power") || operator.equals("ln") || operator.equals("lg") || operator.equals("arccos")
-                || operator.equals("arcsin") || operator.equals("arctan")) {
+                || operator.equals("arcsin") || operator.equals("arctan") || operator.equals("sqrt")) {
             return true;
         }
         return false;
@@ -112,6 +112,7 @@ public class Parser {
                         seperator.add("divide");
                         break;
                     case '^':
+                        System.out.println("haha");
                         seperator.add("power");
                         break;
                     case 'a':
@@ -122,7 +123,7 @@ public class Parser {
                         }else if (input.indexOf("arctan") == i) {
                             seperator.add("arctan");
                         }
-                        i = i + 4;
+                        i = i + 5;
                         break;
                     case 'l':
                         if (input.indexOf("log") == i) {
@@ -180,6 +181,7 @@ public class Parser {
         }
 
         printList(seperator);
+
         if (!checkPar(seperator)) {
             System.out.println("Unbalanced Parenthesis");
             JOptionPane.showMessageDialog(null,
@@ -294,6 +296,8 @@ public class Parser {
                 operands.push(newVar);
             }
         }
+
+        System.out.println("here");
 
         while (operators.size() > 0) {
 

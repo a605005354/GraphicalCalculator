@@ -100,7 +100,14 @@ public class Driver {
         JButton tanButton = new JButton("tan");
         JButton piButton = new JButton("π");
         JButton eButton = new JButton("e");
-
+        JButton logButton = new JButton("log");
+        JButton lgButton = new JButton("lg");
+        JButton lnButton = new JButton("ln");
+        JButton arcsinButton = new JButton("arcsin");
+        JButton arccosButton = new JButton("arccos");
+        JButton arctanButton = new JButton("arctan");
+        JButton sqrtButton = new JButton("sqrt");
+        JButton powerButton = new JButton("^");
 
 
         //GridBag
@@ -132,7 +139,31 @@ public class Driver {
         operatorPanel.add(piButton,c);
         c.gridx = 4;
         c.gridy = 1;
-       operatorPanel.add(eButton,c);
+        operatorPanel.add(eButton,c);
+        c.gridx = 5;
+        c.gridy = 1;
+        operatorPanel.add(logButton, c);
+        c.gridx = 1;
+        c.gridy = 2;
+        operatorPanel.add(lgButton, c);
+        c.gridx = 2;
+        c.gridy = 2;
+        operatorPanel.add(lnButton, c);
+        c.gridx = 3;
+        c.gridy = 2;
+        operatorPanel.add(arccosButton, c);
+        c.gridx = 4;
+        c.gridy = 2;
+        operatorPanel.add(arcsinButton, c);
+        c.gridx = 5;
+        c.gridy = 2;
+        operatorPanel.add(arctanButton, c);
+        c.gridx = 1;
+        c.gridy = 3;
+        operatorPanel.add(sqrtButton, c);
+        c.gridx = 2;
+        c.gridy = 3;
+        operatorPanel.add(powerButton, c);
 
 
         //Plot button Action:
@@ -229,6 +260,62 @@ public class Driver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 oriInputPanel.setInputText(oriInputPanel.getInputFunc()  + "e");
+            }
+        });
+
+        logButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "log");
+            }
+        });
+
+        lgButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "lg");
+            }
+        });
+
+        lnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "ln");
+            }
+        });
+
+        arcsinButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "arcsin()");
+            }
+        });
+
+        arccosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "arccos()");
+            }
+        });
+
+        arctanButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "arctan()");
+            }
+        });
+
+        sqrtButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "sqrt()");
+            }
+        });
+
+        powerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                oriInputPanel.setInputText(oriInputPanel.getInputFunc() + "^");
             }
         });
 

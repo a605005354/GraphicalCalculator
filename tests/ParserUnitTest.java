@@ -67,10 +67,19 @@ public class ParserUnitTest {
         System.out.println("pspecial:");
         pspeciale.getFunctionTree().print();*/
 
-        Parser pspecialp = new Parser("π*x");
+        /*Parser pspecialp = new Parser("π*x");
         pspecialp.parse();
         System.out.println("pspecial:");
         pspecialp.getFunctionTree().print();
 
+        Parser parcsin = new Parser("arcsin(x)");
+        parcsin.parse();
+        System.out.println("parcsin:");
+        parcsin.getFunctionTree().print();*/
+
+        Parser psqrt = new Parser("sqrt(x)");
+        psqrt.parse();
+        System.out.println("psqrt: ");
+        psqrt.getFunctionTree().print();
     }
 }
