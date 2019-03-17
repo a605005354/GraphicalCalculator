@@ -48,7 +48,7 @@ public class ExpressionPanel extends JPanel {
         this.Id = id;
         inputPanel=new JPanel();
         GroupInput = new JScrollPane();
-        GroupInput.setPreferredSize(new Dimension(200,200));
+        GroupInput.setPreferredSize(new Dimension(290,250));
         Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
         GroupInput.setBorder(border);
         GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -113,8 +113,8 @@ public class ExpressionPanel extends JPanel {
         //add more pieces func:
         JButton plus = new JButton("+");
         JButton minus = new JButton("-");
-        JButton set = new JButton("confirm");
-        set.addActionListener(new ActionListener() {
+        JButton confirm = new JButton("confirm");
+        confirm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 partFunctrees = new ArrayList<FunctionTree>();
                 partIntervals = new ArrayList<Interval>();
@@ -127,7 +127,7 @@ public class ExpressionPanel extends JPanel {
                         left = 0;
                     }
                     try{
-                        right = Double.parseDouble(domainLeftIn.getText());
+                        right = Double.parseDouble(domainRightIn.getText());
                         rightInf = false;
                     }catch (NullPointerException n){
                         rightInf = true;
@@ -135,13 +135,14 @@ public class ExpressionPanel extends JPanel {
                     }
                     partIntervals.add(new Interval(left,right,leftInf,rightInf));
                     Parser parser = new Parser(inputDialog.getText());
+                    parser.parse();
                     partFunctrees.add(parser.getFunctionTree());
                 //}
 
                 double leftp;
                 double rightp;
-                Parser parsePiece;
-                for(int i = 0; i < pieces.length ; i++) {
+                Parser parsePiece ;
+                for(int i = 0; i < pieceCount ; i++) {
                     if(pieces[i].funcPiece.getText() == null){
                         continue;
                     }
@@ -162,8 +163,10 @@ public class ExpressionPanel extends JPanel {
                     }
                     partIntervals.add(new Interval(leftp,rightp,leftInf,rightInf));
                     parsePiece = new Parser(pieces[i].getInputFunction().getText());
+                    parsePiece.parse();
                     partFunctrees.add(parsePiece.getFunctionTree());
                 }
+
 
 
 
@@ -199,6 +202,7 @@ public class ExpressionPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("---");
+                numAlert.setText("Maximum piecewise : 5");
                 if(pieceCount > 0){
                     inputPanel.remove(pieces[--pieceCount]);
                     pieces[pieceCount] = null;
@@ -250,19 +254,22 @@ public class ExpressionPanel extends JPanel {
         popupPanel.add(inputPanel);
         popupPanel.add(plus);
         popupPanel.add(minus);
-        popupPanel.add(set);
+        popupPanel.add(confirm);
         popupPanel.add(numAlert);
         popupPanel.setVisible(true);
         popupPanel.repaint();
         /*GroupInput.add(inputPanel);
         GroupInput.add(plus);
         GroupInput.add(minus);
-        GroupInput.add(set);
+        GroupInput.add(confirm);
         GroupInput.add(numAlert);
         GroupInput.setVisible(true);
         GroupInput.repaint();*/
+       // GroupInput.add(popupPanel);
+       // popupPanel.add(GroupInput);
         mainPanel.repaint();
         mainPanel.setVisible(true);
+        GroupInput.setViewportView(popupPanel);
 
 
 
@@ -274,7 +281,7 @@ public class ExpressionPanel extends JPanel {
                // System.out.println("sdf "+pieceClick);
                 if(pieceClick == 1){
                     //popPiece.show();
-                    popPiece = popFact.getPopup(mainPanel,popupPanel,200,300);
+                    popPiece = popFact.getPopup(mainPanel,GroupInput,400,400);
                     popPiece.show();
                     pieceClick = 0;
                 }else {
