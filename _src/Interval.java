@@ -7,7 +7,7 @@ public class Interval {
     private boolean leftInfi;
     private boolean rightInfi;
 
-    public Interval(float left, float right, boolean leftOpen, boolean rightOpen, boolean leftInfi, boolean rightInfi) {
+    public Interval(float left, float right, boolean leftInfi, boolean rightInfi) {
         this.left = left;
         this.right = right;
 //        this.leftOpen = leftOpen;
