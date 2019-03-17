@@ -42,7 +42,7 @@ public class ParserUnitTest {
         //System.out.println("pfp2:");
         //pfp2.getFunctionTree().print();
 
-        System.out.println("--------------------------------------");*/
+        System.out.println("--------------------------------------");
 
         //Faulty input tests
         Parser pfi1=new Parser("2x3+1");
@@ -61,5 +61,16 @@ public class ParserUnitTest {
         pfi4.parse();
         System.out.println("pfi4:");
         pfi4.getFunctionTree().print();
+
+        Parser pspeciale = new Parser("e*x");
+        pspeciale.parse();
+        System.out.println("pspecial:");
+        pspeciale.getFunctionTree().print();*/
+
+        Parser pspecialp = new Parser("π*x");
+        pspecialp.parse();
+        System.out.println("pspecial:");
+        pspecialp.getFunctionTree().print();
+
     }
 }

@@ -31,6 +31,13 @@ public class Parser {
         return operand.matches("-?\\d+(\\.\\d+)?");
     }
 
+    boolean isSpecialChar(String specialOperand) {
+        if (specialOperand.equals("e") || specialOperand.equals("π")) {
+            return true;
+        }
+        return false;
+    }
+
     boolean isVariable(String var) {
         if (var.equals("x")) {
             return true;
@@ -150,6 +157,12 @@ public class Parser {
                             i = i + 2;
                         }
                         break;
+                    case 'e':
+                        seperator.add("e");
+                        break;
+                    case 'π':
+                        seperator.add("π");
+                        break;
                     case '(':
                         seperator.add("leftpar");
                         break;
@@ -166,7 +179,7 @@ public class Parser {
             i++;
         }
 
-        //printList(seperator);
+        printList(seperator);
         if (!checkPar(seperator)) {
             System.out.println("Unbalanced Parenthesis");
             JOptionPane.showMessageDialog(null,
@@ -264,8 +277,15 @@ public class Parser {
                 }
             }
             // if it is a number
-            else if(isOperands(list.get(i))) {
-                Node newOprands = new Node(Double.parseDouble(list.get(i)));
+            else if(isOperands(list.get(i)) || isSpecialChar(list.get(i))) {
+                Node newOprands;
+                if (list.get(i).equals("e")) {
+                    newOprands = new Node(Math.E);
+                }else if (list.get(i).equals("π")) {
+                    newOprands = new Node(Math.PI);
+                }else{
+                    newOprands = new Node(Double.parseDouble(list.get(i)));
+                }
                 operands.push(newOprands);
             }
             //if it is a variable
