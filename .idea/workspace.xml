@@ -2,59 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f38796c5-7a5d-419a-9d87-3e1282babc1c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$1.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$10.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$11.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$12.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$13.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$14.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$15.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$16.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$16.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$17.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$18.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$18.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$19.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$19.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$2.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$20.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$20.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$3.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$4.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$5.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$6.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$7.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$8.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$9.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$1.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$2.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$3.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$4.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$5.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$6.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$7.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$8.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionInfo.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionPanel.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionTree$1.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionTree$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionTree.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Interval.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Interval.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Node.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Operator.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Operator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Parser.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Parser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/PiecewisePanel.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/PiecewisePanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/PixelPoint.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/PixelPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Point.class" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Point.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/GraphicalCalculator/FunctionTreeUnitTest.class" afterPath="$PROJECT_DIR$/out/test/GraphicalCalculator/FunctionTreeUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/GraphicalCalculator/ParserUnitTest.class" afterPath="$PROJECT_DIR$/out/test/GraphicalCalculator/ParserUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/GraphicalCalculator/Test.class" afterPath="$PROJECT_DIR$/out/test/GraphicalCalculator/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_src/Driver.java" afterPath="$PROJECT_DIR$/_src/Driver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_src/ExpressionPanel.java" afterPath="$PROJECT_DIR$/_src/ExpressionPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_src/FunctionInfo.java" afterPath="$PROJECT_DIR$/_src/FunctionInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_src/FunctionPanel.java" afterPath="$PROJECT_DIR$/_src/FunctionPanel.java" />
     </list>
     <ignored path="GraphicalCalculator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,10 +51,11 @@
       <file leaf-file-name="ExpressionPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_src/ExpressionPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5835">
-              <caret line="396" column="2" selection-start-line="396" selection-start-column="2" selection-end-line="396" selection-end-column="2" />
+            <state relative-caret-position="-2535">
+              <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
               <folding>
-                <element signature="e#13780#13781#0" expanded="true" />
+                <element signature="e#13569#13570#0" expanded="true" />
+                <element signature="e#13611#13612#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,9 +85,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/_src/FunctionInfo.java" />
-        <option value="$PROJECT_DIR$/_src/ExpressionPanel.java" />
         <option value="$PROJECT_DIR$/_src/Driver.java" />
         <option value="$PROJECT_DIR$/_src/FunctionPanel.java" />
+        <option value="$PROJECT_DIR$/_src/ExpressionPanel.java" />
       </list>
     </option>
   </component>
@@ -513,7 +462,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -596,7 +545,8 @@
         <state relative-caret-position="5835">
           <caret line="396" column="2" selection-start-line="396" selection-start-column="2" selection-end-line="396" selection-end-column="2" />
           <folding>
-            <element signature="e#13780#13781#0" expanded="true" />
+            <element signature="e#13569#13570#0" expanded="true" />
+            <element signature="e#13611#13612#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -648,10 +598,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_src/ExpressionPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5835">
-          <caret line="396" column="2" selection-start-line="396" selection-start-column="2" selection-end-line="396" selection-end-column="2" />
+        <state relative-caret-position="-2535">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
           <folding>
-            <element signature="e#13780#13781#0" expanded="true" />
+            <element signature="e#13569#13570#0" expanded="true" />
+            <element signature="e#13611#13612#0" expanded="true" />
           </folding>
         </state>
       </provider>
