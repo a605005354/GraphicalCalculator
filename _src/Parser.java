@@ -22,13 +22,20 @@ public class Parser {
         if (operator.equals("plus") || operator.equals("minus") || operator.equals("multiply") || operator.equals("divide")
                 || operator.equals("sin") || operator.equals("cos") || operator.equals("tan") || operator.equals("log") ||
                 operator.equals("power") || operator.equals("ln") || operator.equals("lg") || operator.equals("arccos")
-                || operator.equals("arcsin") || operator.equals("arctan")) {
+                || operator.equals("arcsin") || operator.equals("arctan") || operator.equals("sqrt")) {
             return true;
         }
         return false;
     }
     boolean isOperands (String operand) {
         return operand.matches("-?\\d+(\\.\\d+)?");
+    }
+
+    boolean isSpecialChar(String specialOperand) {
+        if (specialOperand.equals("e") || specialOperand.equals("π")) {
+            return true;
+        }
+        return false;
     }
 
     boolean isVariable(String var) {
@@ -105,6 +112,7 @@ public class Parser {
                         seperator.add("divide");
                         break;
                     case '^':
+                        System.out.println("haha");
                         seperator.add("power");
                         break;
                     case 'a':
@@ -115,7 +123,7 @@ public class Parser {
                         }else if (input.indexOf("arctan") == i) {
                             seperator.add("arctan");
                         }
-                        i = i + 4;
+                        i = i + 5;
                         break;
                     case 'l':
                         if (input.indexOf("log") == i) {
@@ -150,6 +158,12 @@ public class Parser {
                             i = i + 2;
                         }
                         break;
+                    case 'e':
+                        seperator.add("e");
+                        break;
+                    case 'π':
+                        seperator.add("π");
+                        break;
                     case '(':
                         seperator.add("leftpar");
                         break;
@@ -166,7 +180,8 @@ public class Parser {
             i++;
         }
 
-        //printList(seperator);
+        printList(seperator);
+
         if (!checkPar(seperator)) {
             System.out.println("Unbalanced Parenthesis");
             JOptionPane.showMessageDialog(null,
@@ -264,8 +279,15 @@ public class Parser {
                 }
             }
             // if it is a number
-            else if(isOperands(list.get(i))) {
-                Node newOprands = new Node(Double.parseDouble(list.get(i)));
+            else if(isOperands(list.get(i)) || isSpecialChar(list.get(i))) {
+                Node newOprands;
+                if (list.get(i).equals("e")) {
+                    newOprands = new Node(Math.E);
+                }else if (list.get(i).equals("π")) {
+                    newOprands = new Node(Math.PI);
+                }else{
+                    newOprands = new Node(Double.parseDouble(list.get(i)));
+                }
                 operands.push(newOprands);
             }
             //if it is a variable
@@ -274,6 +296,8 @@ public class Parser {
                 operands.push(newVar);
             }
         }
+
+        System.out.println("here");
 
         while (operators.size() > 0) {
 
