@@ -14,7 +14,7 @@ public class Interval {
         this.rightInfi=rightInfi;
     }
 
-    public boolean overlap(Interval i1, Interval i2){
+    public static boolean overlap(Interval i1, Interval i2){
         if (i1.isLeftInfi() && i1.isRightInfi()){
             return true;
         }

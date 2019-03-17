@@ -112,6 +112,7 @@ public class ExpressionPanel extends JPanel {
                 partIntervals = new ArrayList<Interval>();
                 //if(pieces[0] == null){
                     try{
+                        //System.out.println(domainLeftIn.getText());
                         left = Double.parseDouble(domainLeftIn.getText());
                         leftInf = false;
                     }catch (NullPointerException n){
@@ -119,7 +120,7 @@ public class ExpressionPanel extends JPanel {
                         left = 0;
                     }
                     try{
-                        right = Double.parseDouble(domainLeftIn.getText());
+                        right = Double.parseDouble(domainRightIn.getText());
                         rightInf = false;
                     }catch (NullPointerException n){
                         rightInf = true;
@@ -127,13 +128,14 @@ public class ExpressionPanel extends JPanel {
                     }
                     partIntervals.add(new Interval(left,right,leftInf,rightInf));
                     Parser parser = new Parser(inputDialog.getText());
+                    parser.parse();
                     partFunctrees.add(parser.getFunctionTree());
                 //}
 
                 double leftp;
                 double rightp;
                 Parser parsePiece;
-                for(int i = 0; i < pieces.length ; i++) {
+                for(int i = 0; i < pieceCount ; i++) {
                     if(pieces[i].funcPiece.getText() == null){
                         continue;
                     }
@@ -154,13 +156,23 @@ public class ExpressionPanel extends JPanel {
                     }
                     partIntervals.add(new Interval(leftp,rightp,leftInf,rightInf));
                     parsePiece = new Parser(pieces[i].getInputFunction().getText());
+                    parsePiece.parse();
                     partFunctrees.add(parsePiece.getFunctionTree());
                 }
 
-
-
-
-
+                boolean hasOverlap=false;
+                for(int i = 0; i < partIntervals.size(); i++){
+                    for(int j=i+1; j< partIntervals.size(); j++){
+                        if(Interval.overlap(partIntervals.get(i), partIntervals.get(j))){
+                            JOptionPane.showMessageDialog(null, "Overlapping Intervals!", "Error", JOptionPane.ERROR_MESSAGE);
+                            hasOverlap=true;
+                        }
+                    }
+                }
+                if(!hasOverlap){
+                    popPiece.hide();
+                    pieceClick = 1;
+                }
             }
         });
 
@@ -181,9 +193,7 @@ public class ExpressionPanel extends JPanel {
                     mainPanel.pack();
                     mainPanel.repaint();
                     mainPanel.setVisible(true);
-
                 }
-
             }
         });
 
