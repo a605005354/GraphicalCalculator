@@ -185,28 +185,9 @@ public class Driver {
                     functionInfo.getFunctionTrees().add(i,multipleFunc[i].partFunctrees);
                     functionInfo.getIntervals().add(i,multipleFunc[i].partIntervals);
                     functionInfo.getColors().add(i,multipleFunc[i].color);
+                    functionInfo.getIsPieceWise()[i] = multipleFunc[i].isPiece;
                 }
                 ((FunctionPanel)functionPanel).repaint();
-                /*if(multipleFunc[1] == null){
-
-                }else{ //multiple function
-                    /*for(int i =0; i < 5;i++){
-                        if(multipleFunc[i] == null){
-                            continue;
-                        }
-                        String input = multipleFunc[i].getInputFunc();
-                        Parser parser=new Parser(input);
-                        parser.parse();
-                        FunctionTree result;
-                        for(int j =0;j < 5;j++){
-                            result = parser.getFunctionTree();
-                        }
-
-                        //((FunctionPanel) functionPanel).setFunctionTree(result);
-                        //((FunctionPanel) functionPanel).functionSet=true;
-                        //multipleFunc[i].plotPiece(((FunctionPanel) functionPanel));
-                    }
-                ((FunctionPanel)functionPanel).repaint();*/
 
                 }
 

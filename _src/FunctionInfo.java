@@ -65,4 +65,8 @@ public class FunctionInfo {
     public ArrayList<Color> getColors() {
         return colors;
     }
+    public boolean[] getIsPieceWise(){
+        return isPieceWise;
+    }
 }
+

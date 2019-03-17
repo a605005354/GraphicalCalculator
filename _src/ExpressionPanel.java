@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,10 +42,17 @@ public class ExpressionPanel extends JPanel {
     String [] leftside = {"[","("};
     String [] rightside = {"]",")"};
     String [] colors = {"Black","Blue","Red","Yellow"};
+    JScrollPane GroupInput;
     ExpressionPanel(final JFrame mainPanel,int id){
         //inputPanel: panel in popup
         this.Id = id;
         inputPanel=new JPanel();
+        GroupInput = new JScrollPane();
+        GroupInput.setPreferredSize(new Dimension(200,200));
+        Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
+        GroupInput.setBorder(border);
+        GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        GroupInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
         this.mainPanel = mainPanel;
         inputPanel.setSize(400,400);
@@ -137,7 +145,7 @@ public class ExpressionPanel extends JPanel {
                     if(pieces[i].funcPiece.getText() == null){
                         continue;
                     }
-
+                    isPiece = true;
                     try{
                         leftp = Double.parseDouble(pieces[i].getLeft());
                         leftInf = false;
@@ -238,6 +246,7 @@ public class ExpressionPanel extends JPanel {
         inputPanel.add(minus,constrain);*/
         //inputPanel.add(staticLabel);
         inputPanel.add(basicXrange);
+
         popupPanel.add(inputPanel);
         popupPanel.add(plus);
         popupPanel.add(minus);
@@ -245,6 +254,13 @@ public class ExpressionPanel extends JPanel {
         popupPanel.add(numAlert);
         popupPanel.setVisible(true);
         popupPanel.repaint();
+        /*GroupInput.add(inputPanel);
+        GroupInput.add(plus);
+        GroupInput.add(minus);
+        GroupInput.add(set);
+        GroupInput.add(numAlert);
+        GroupInput.setVisible(true);
+        GroupInput.repaint();*/
         mainPanel.repaint();
         mainPanel.setVisible(true);
 
