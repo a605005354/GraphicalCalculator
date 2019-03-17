@@ -3,6 +3,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class Driver {
@@ -174,11 +175,12 @@ public class Driver {
             @Override
             public void actionPerformed(ActionEvent e) {
                // String input ;
+                functionInfo = new FunctionInfo();
 
                 //multipleFunc[0].partFunctrees.add(0,parser.getFunctionTree());
                 for(int i =0; i < multipleFunc.length;i++){
                     String input ;
-                    if(multipleFunc[i] == null){
+                    if(multipleFunc[i] == null || multipleFunc[i].inputDialog.getText() == null){
                         continue;
                     }
 
@@ -186,18 +188,31 @@ public class Driver {
                     Parser parser=new Parser(input);
                     parser.parse();
                     FunctionTree result = parser.getFunctionTree() ;
-                    multipleFunc[i].partFunctrees.add(0,result);
-                    functionInfo.getFunctionTrees().add(i,multipleFunc[i].partFunctrees);
-                    functionInfo.getIntervals().add(i,multipleFunc[i].partIntervals);
-                    functionInfo.getColors().add(i,multipleFunc[i].color);
+                    if(multipleFunc[i].partFunctrees == null){
+                        multipleFunc[i].partFunctrees = new ArrayList<FunctionTree>();
+                    }else if(multipleFunc[i].partIntervals == null){
+                        multipleFunc[i].partIntervals = new ArrayList<Interval>();
+                    }
+
+                    if(multipleFunc[i].partFunctrees.size() == 0){
+                        multipleFunc[i].partFunctrees.add(0,result);
+
+                    }else{
+                        multipleFunc[i].partFunctrees.set(0,result);
+                    }
+                    multipleFunc[i].partFunctrees.set(0,result);
+                    if(multipleFunc[i].partIntervals.size() == 0 ){
+                        multipleFunc[i].partIntervals.add(0,new Interval(0,0,true,true));
+                    }
+                    functionInfo.getFunctionTrees().add(multipleFunc[i].partFunctrees);
+                    functionInfo.getIntervals().add(multipleFunc[i].partIntervals);
+                    functionInfo.getColors().add(multipleFunc[i].color);
                     functionInfo.getIsPieceWise()[i] = multipleFunc[i].isPiece;
                 }
+                ((FunctionPanel) functionPanel).setFninfo(functionInfo);
+                ((FunctionPanel) functionPanel).functionSet=true;
                 ((FunctionPanel)functionPanel).repaint();
-
-                }
-
-
-
+            }
         });
 
         //Operator Button Action:

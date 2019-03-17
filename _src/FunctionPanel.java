@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.geom.Arc2D;
 
 public class FunctionPanel extends JPanel {
-    private FunctionInfo fninfo = new FunctionInfo();
+    private FunctionInfo fninfo;
     int treetracker = 0;
     double defScale = 10;
     private static final int LENGTH=800;
@@ -294,5 +294,9 @@ public class FunctionPanel extends JPanel {
     public void resetscalebool(){
         this.manualscale = false;
         this.defScale = 10;
+    }
+
+    public void setFninfo(FunctionInfo fninfo) {
+        this.fninfo = fninfo;
     }
 }

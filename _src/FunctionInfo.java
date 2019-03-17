@@ -19,6 +19,7 @@ public class FunctionInfo {
         this.intervals=new ArrayList<>();
         this.functionTrees=new ArrayList<>();
         this.colors=new ArrayList<>();
+        isPieceWise = new boolean[10];
     }
 
     //add a piece to the last function

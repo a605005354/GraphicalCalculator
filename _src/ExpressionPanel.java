@@ -118,8 +118,8 @@ public class ExpressionPanel extends JPanel {
         JButton confirm = new JButton("confirm");
         confirm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               // partFunctrees = new ArrayList<FunctionTree>();
-                //partIntervals = new ArrayList<Interval>();
+                partFunctrees = new ArrayList<FunctionTree>();
+                partIntervals = new ArrayList<Interval>();
                 //if(pieces[0] == null){
                     try{
                         //System.out.println(domainLeftIn.getText());
