@@ -322,10 +322,14 @@ public class Parser {
             }
         }
         if(!err) {
-            Node finalNode = operands.pop();
-            functionTree = new FunctionTree(finalNode);
+            if(operands.size()==0){
+                functionTree=null;
+            }
+            else{
+                Node finalNode = operands.pop();
+                functionTree = new FunctionTree(finalNode);
+            }
         }
-
     }
 
     public FunctionTree getFunctionTree() {

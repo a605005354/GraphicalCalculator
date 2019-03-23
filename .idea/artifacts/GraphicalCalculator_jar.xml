@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GraphicalCalculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GraphicalCalculator_jar</output-path>
+    <root id="archive" name="GraphicalCalculator.jar">
+      <element id="module-output" name="GraphicalCalculator" />
+    </root>
+  </artifact>
+</component>
