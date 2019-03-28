@@ -48,11 +48,11 @@ public class ExpressionPanel extends JPanel {
         this.Id = id;
         inputPanel=new JPanel();
         GroupInput = new JScrollPane();
-        GroupInput.setPreferredSize(new Dimension(290,250));
+        GroupInput.setPreferredSize(new Dimension(290,200));
         Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
         GroupInput.setBorder(border);
-        GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        GroupInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        GroupInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
         this.mainPanel = mainPanel;
         inputPanel.setSize(400,400);
@@ -112,6 +112,7 @@ public class ExpressionPanel extends JPanel {
         popFact =new PopupFactory();
         popupPanel = new JPanel();
         popupPanel.setLayout(new BoxLayout(popupPanel,BoxLayout.Y_AXIS));
+        popPiece = popFact.getPopup(mainPanel,GroupInput,400,400);
         //add more pieces func:
         JButton plus = new JButton("+");
         JButton minus = new JButton("-");
@@ -121,25 +122,25 @@ public class ExpressionPanel extends JPanel {
                 partFunctrees = new ArrayList<FunctionTree>();
                 partIntervals = new ArrayList<Interval>();
                 //if(pieces[0] == null){
-                    try{
-                        //System.out.println(domainLeftIn.getText());
-                        left = Double.parseDouble(domainLeftIn.getText());
-                        leftInf = false;
-                    }catch (NullPointerException n){
-                        leftInf = true;
-                        left = 0;
-                    }
-                    try{
-                        right = Double.parseDouble(domainRightIn.getText());
-                        rightInf = false;
-                    }catch (NullPointerException n){
-                        rightInf = true;
-                        right = 0;
-                    }
-                    partIntervals.add(new Interval(left,right,leftInf,rightInf));
-                    Parser parser = new Parser(inputDialog.getText());
-                    parser.parse();
-                    partFunctrees.add(parser.getFunctionTree());
+                try{
+                    //System.out.println(domainLeftIn.getText());
+                    left = Double.parseDouble(domainLeftIn.getText());
+                    leftInf = false;
+                }catch (NullPointerException n){
+                    leftInf = true;
+                    left = 0;
+                }
+                try{
+                    right = Double.parseDouble(domainRightIn.getText());
+                    rightInf = false;
+                }catch (NullPointerException n){
+                    rightInf = true;
+                    right = 0;
+                }
+                partIntervals.add(new Interval(left,right,leftInf,rightInf));
+                Parser parser = new Parser(inputDialog.getText());
+                parser.parse();
+                partFunctrees.add(parser.getFunctionTree());
                 //}
 
                 double leftp;
@@ -199,6 +200,7 @@ public class ExpressionPanel extends JPanel {
                     PiecewisePanel piece = new PiecewisePanel(color,pieceCount+1);
                     System.out.println("adding");
                     inputPanel.add(piece);
+                    inputPanel.revalidate();
                     inputPanel.setVisible(true);
                     inputPanel.repaint();
                     pieces[pieceCount++] = piece;
@@ -276,8 +278,8 @@ public class ExpressionPanel extends JPanel {
         GroupInput.add(numAlert);
         GroupInput.setVisible(true);
         GroupInput.repaint();*/
-       // GroupInput.add(popupPanel);
-       // popupPanel.add(GroupInput);
+        // GroupInput.add(popupPanel);
+        // popupPanel.add(GroupInput);
         mainPanel.repaint();
         mainPanel.setVisible(true);
         GroupInput.setViewportView(popupPanel);
@@ -289,16 +291,15 @@ public class ExpressionPanel extends JPanel {
         pieceWise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // System.out.println("sdf "+pieceClick);
+                // System.out.println("sdf "+pieceClick);
                 if(pieceClick == 1){
                     //popPiece.show();
                     popPiece = popFact.getPopup(mainPanel,GroupInput,400,400);
                     popPiece.show();
                     pieceClick = 0;
                 }else {
-
                     popPiece.hide();
-                    pieceClick = 1;
+                    //pieceClick = 1;
                 }
                 mainPanel.pack();
                 mainPanel.repaint();
@@ -308,7 +309,7 @@ public class ExpressionPanel extends JPanel {
 
             }
         });
-       // popupPanel.setBackground(Color.blue);
+        // popupPanel.setBackground(Color.blue);
         //popupPanel.add(leftBracket);
         //popupPanel.add(rightBracket);
 
@@ -323,7 +324,6 @@ public class ExpressionPanel extends JPanel {
 
                 switch (setColor.getSelectedIndex()){
                     case 0: color = Color.black;
-
                         break;
                     case 1: color = Color.cyan;
                         break;

@@ -15,31 +15,31 @@ public class Interval {
     }
 
     public static boolean overlap(Interval i1, Interval i2){
-        if (i1.isLeftInfi() && i1.isRightInfi()){
-            return true;
-        }
-        if (i1.isLeftInfi() && !i1.isRightInfi()){
-            if (i2.isLeftInfi()){
-                return true;
-            }
-            else if (i2.getLeft() < i1.getRight()){
-                return true;
-            }
-        }
-        if (!i1.isLeftInfi() && i1.isRightInfi()){
-            if(i2.isRightInfi()){
-                return true;
-            }
-            else if (i2.getRight() > i1.getLeft()){
-                return true;
-            }
-        }
-        if (!i1.isLeftInfi() && !i1.isRightInfi()){
-            if((i1.getLeft()<i2.getLeft() && i1.getRight()>i2.getLeft())
-                    ||(i1.getLeft()<i2.getRight()&&i1.getRight()>i2.getRight())){
-                return true;
-            }
-        }
+//        if (i1.isLeftInfi() && i1.isRightInfi()){
+//            return true;
+//        }
+//        if (i1.isLeftInfi() && !i1.isRightInfi()){
+//            if (i2.isLeftInfi()){
+//                return true;
+//            }
+//            else if (i2.getLeft() < i1.getRight()){
+//                return true;
+//            }
+//        }
+//        if (!i1.isLeftInfi() && i1.isRightInfi()){
+//            if(i2.isRightInfi()){
+//                return true;
+//            }
+//            else if (i2.getRight() > i1.getLeft()){
+//                return true;
+//            }
+//        }
+//        if (!i1.isLeftInfi() && !i1.isRightInfi()){
+//            if((i1.getLeft()<i2.getLeft() && i1.getRight()>i2.getLeft())
+//                    ||(i1.getLeft()<i2.getRight()&&i1.getRight()>i2.getRight())){
+//                return true;
+//            }
+//        }
         return false;
     }
 

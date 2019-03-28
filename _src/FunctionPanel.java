@@ -20,6 +20,7 @@ public class FunctionPanel extends JPanel {
     boolean findYflag = false;
     double findYx = 0.0;
     boolean manualscale = false;
+    boolean dialog1 = false;
 
 
     public FunctionPanel(){
@@ -34,6 +35,7 @@ public class FunctionPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (functionSet) {
+            dialog1 = false;
             if (aimx == 0.0 && aimy == 0.0) {
                 int fntracker = fninfo.getFunctionTrees().size();
                 double start = -defScale / 2;
@@ -44,38 +46,47 @@ public class FunctionPanel extends JPanel {
                         if(fnt == null){
                             continue;
                         }else{
-                        Color color = fninfo.getColors().get(k);
-                        for (int i = 0; i < LENGTH; i += 1) {
-                            double x = start + i * seperate;
-                            double y = fnt.value(x);
-                            double x5 = start + (i + 1) * seperate;
-                            double y5 = fnt.value(x5);
-                            if (Double.isNaN(y) || Double.isNaN(y5)) {
-                                continue;
-                            }
-                            if (y > y5 && (fnt.value(x) < fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) < fnt.value(x5))) {
-                                int newj = pointToPixel(new Point(x, y)).getJ();
-                                int newj5 = pointToPixel(new Point(x5, y5)).getJ();
-                                drawline(new PixelPoint(i, newj), new PixelPoint(i, 0), color, g);
-                                drawline(new PixelPoint(i + 1, newj5), new PixelPoint(i + 1, 800), color, g);
-                                continue;
-                            }
-                            if (y < y5 && (fnt.value(x) > fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) > fnt.value(x5))) {
-                                int newj = pointToPixel(new Point(x, y)).getJ();
-                                int newj5 = pointToPixel(new Point(x5, y5)).getJ();
-                                drawline(new PixelPoint(i, newj), new PixelPoint(i, 800), color, g);
-                                drawline(new PixelPoint(i + 1, newj5), new PixelPoint(i + 1, 0), color, g);
-                                continue;
-                            }
-                            if (Double.isInfinite(y) || Double.isInfinite(y5)) {
-                                continue;
-                            }
-                            int j = pointToPixel(new Point(x, y)).getJ();
-                            int j5 = pointToPixel(new Point(x5, y5)).getJ();
+                            //seeded, color does not change.
+                            //Color color = fninfo.getColors().get(k);
+                            Color color = Color.black;
+                            for (int i = 0; i < LENGTH; i += 1) {
+                                double x = start + i * seperate;
+                                double y = fnt.value(x);
+                                double x5 = start + (i + 1) * seperate;
+                                double y5 = fnt.value(x5);
+                                if (Double.isNaN(y) || Double.isNaN(y5)) {
+                                    System.out.println("isnan");
+                                    if(dialog1 == false){JOptionPane.showMessageDialog(null,
+                                            "Function not defined",
+                                            "Invalid input",
+                                            JOptionPane.ERROR_MESSAGE);
+                                        dialog1 = true;
+                                    }
+                                    continue;
+                                }
+                                if (y > y5 && (fnt.value(x) < fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) < fnt.value(x5))) {
+                                    int newj = pointToPixel(new Point(x, y)).getJ();
+                                    int newj5 = pointToPixel(new Point(x5, y5)).getJ();
+                                    drawline(new PixelPoint(i, newj), new PixelPoint(i, 0), color, g);
+                                    drawline(new PixelPoint(i + 1, newj5), new PixelPoint(i + 1, 800), color, g);
+                                    continue;
+                                }
+                                if (y < y5 && (fnt.value(x) > fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) > fnt.value(x5))) {
+                                    int newj = pointToPixel(new Point(x, y)).getJ();
+                                    int newj5 = pointToPixel(new Point(x5, y5)).getJ();
+                                    // drawline(new PixelPoint(i, newj), new PixelPoint(i, 800), color, g);
+                                    //   drawline(new PixelPoint(i + 1, newj5), new PixelPoint(i + 1, 0), color, g);
+                                    continue;
+                                }
+                                if (Double.isInfinite(y) || Double.isInfinite(y5)) {
+                                    continue;
+                                }
+                                int j = pointToPixel(new Point(x, y)).getJ();
+                                int j5 = pointToPixel(new Point(x5, y5)).getJ();
 //                paintPixel(new PixelPoint(i,j), Color.black, g);
-                            //System.out.println("this is y: " + y + " this is y5: " + y5);
-                            drawline(new PixelPoint(i, j), new PixelPoint(i + 1, j5), color, g);
-                            // System.out.printf("%d,%d\n",j, j5);
+                                //System.out.println("this is y: " + y + " this is y5: " + y5);
+                                drawline(new PixelPoint(i, j), new PixelPoint(i + 1, j5), color, g);
+                                // System.out.printf("%d,%d\n",j, j5);
                             }
                         }
                     } else {
@@ -116,8 +127,8 @@ public class FunctionPanel extends JPanel {
                                         if (y < y5 && (fnt.value(x) > fnt.value(x + 0.0000001) && fnt.value(x5 - 0.0000001) > fnt.value(x5))) {
                                             int newj = pointToPixel(new Point(x, y)).getJ();
                                             int newj5 = pointToPixel(new Point(x5, y5)).getJ();
-                                            drawline(new PixelPoint(m, newj), new PixelPoint(m, 800), color, g);
-                                            drawline(new PixelPoint(m + 1, newj5), new PixelPoint(m + 1, 0), color, g);
+                                            //  drawline(new PixelPoint(m, newj), new PixelPoint(m, 800), color, g);
+                                            //drawline(new PixelPoint(m + 1, newj5), new PixelPoint(m + 1, 0), color, g);
                                             continue;
                                         }
                                         if (Double.isInfinite(y) || Double.isInfinite(y5)) {
@@ -161,7 +172,7 @@ public class FunctionPanel extends JPanel {
                         double lab = i / (HEIGHT / defScale) - defScale / 2;
                         String Label = Double.toString(lab);
                         if (Label.length() > 3) {
-                            lab = Double.parseDouble(String.format("%.5f", lab));
+                            lab = Double.parseDouble(String.format("%f", lab));
                             Label = Double.toString(lab);
                         }
                         addLabel(Label, i, HEIGHT / 2, g);
@@ -174,7 +185,7 @@ public class FunctionPanel extends JPanel {
                     for (int ii = 0; ii < fntrack; ii++) {
                         if (fninfo.isPieceWise[ii] == false) {
                             FunctionTree fn = fninfo.getFunctionTrees().get(ii).get(0);
-                            double x = start + line * seperate;
+                            double x = start + line * seperate - seperate/2;
                             double y = fn.value(x);
                             int j = pointToPixel(new Point(x, y)).getJ();
                             drawdot(y, new PixelPoint(line, j), Color.black, g);
@@ -243,7 +254,7 @@ public class FunctionPanel extends JPanel {
                                 if (x > left && x < right) {
                                     double y = fn.value(findYx);
                                     int j = pointToPixel(new Point(globj, y)).getJ();
-                                    drawdot(y, new PixelPoint(globj, j), Color.black, g);
+                                    //drawdot(y, new PixelPoint(globj, j), Color.black, g);
                                 } else {
                                     continue;
                                 }
@@ -321,12 +332,13 @@ public class FunctionPanel extends JPanel {
         g.fillRect(p1.getI()-1,p1.getJ()-1,1,1);
         g.fillRect(p1.getI()-1,p1.getJ()+1,1,1);
         g.fillRect(p1.getI()+1,p1.getJ()-1,1,1);
-       // g.setColor(Color.white);
+        // g.setColor(Color.white);
         g.fillRect(p1.getI()+1,p1.getJ(),1,1);
         String yequal = "  y = ";
         String yvalue = Double.toString(y);
         String ytotal = yequal + yvalue;
-        addLabel(ytotal, p1.getI(),p1.getJ(),g);
+        //seeded, y = ...won't show up.
+        //addLabel(ytotal, p1.getI(),p1.getJ(),g);
     }
     public void findY(double x){
         this.findYflag = true;
@@ -352,7 +364,7 @@ public class FunctionPanel extends JPanel {
     }
     public void resetscalebool(){
         this.manualscale = false;
-        this.defScale = 10;
+        //this.defScale = 10;
     }
 
     public void setFninfo(FunctionInfo fninfo) {

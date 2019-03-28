@@ -32,7 +32,7 @@ public class Driver {
         JScrollPane GroupInput = new JScrollPane();
         final JPanel ContentPanel = new JPanel();
         ContentPanel.setLayout(new BoxLayout(ContentPanel,BoxLayout.Y_AXIS));
-        GroupInput.setPreferredSize(new Dimension(350,350));
+        GroupInput.setPreferredSize(new Dimension(350,200));
         Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
         GroupInput.setBorder(border);
         GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -264,8 +264,8 @@ public class Driver {
         plotButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // String input ;
-                functionInfo = new FunctionInfo();
+                // String input ;
+                //functionInfo = new FunctionInfo();
 
                 //multipleFunc[0].partFunctrees.add(0,parser.getFunctionTree());
                 for(int i =0; i < funcCount;i++){
@@ -284,22 +284,28 @@ public class Driver {
                     Parser parser=new Parser(input);
                     parser.parse();
                     FunctionTree result = parser.getFunctionTree() ;
+
                     if(multipleFunc[i].partFunctrees == null){
                         multipleFunc[i].partFunctrees = new ArrayList<FunctionTree>();
                     }else if(multipleFunc[i].partIntervals == null){
                         multipleFunc[i].partIntervals = new ArrayList<Interval>();
                     }
+                    ///////seed start////
+                    multipleFunc[i].partFunctrees.add(result);
+                    multipleFunc[i].partIntervals.add(new Interval(0, 0, true, true));
 
-                    if(multipleFunc[i].partFunctrees.size() == 0){
+                    ///////seed end////
+                    //seed comment out:
+                    /*if(multipleFunc[i].partFunctrees.size() == 0){
                         multipleFunc[i].partFunctrees.add(0,result);
 
                     }else{
                         multipleFunc[i].partFunctrees.set(0,result);
                     }
-                    multipleFunc[i].partFunctrees.set(0,result);
-                    if(multipleFunc[i].partIntervals.size() == 0 ){
-                        multipleFunc[i].partIntervals.add(0,new Interval(0,0,true,true));
-                    }
+                    if(multipleFunc[i].partIntervals.size() == 0 ) {
+                        multipleFunc[i].partIntervals.add(0, new Interval(0, 0, true, true));
+                    }*/
+
                     functionInfo.getFunctionTrees().add(multipleFunc[i].partFunctrees);
                     functionInfo.getIntervals().add(multipleFunc[i].partIntervals);
                     functionInfo.getColors().add(multipleFunc[i].color);
@@ -308,7 +314,11 @@ public class Driver {
                 ((FunctionPanel) functionPanel).setFninfo(functionInfo);
                 ((FunctionPanel) functionPanel).functionSet=true;
                 ((FunctionPanel)functionPanel).repaint();
+
+                mainFrame.repaint();
+
             }
+
         });
 
         //Operator Button Action:
@@ -446,7 +456,7 @@ public class Driver {
         c2.gridx = 0;
         c2.gridy =20;
         LeftSide.add(operatorPanel, c2);
-       // LeftSide.add(oriInputPanel,c2);
+        // LeftSide.add(oriInputPanel,c2);
 
 
         c2.gridx = 0;

@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="GraphicalCalculator:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="726369c2-0c95-430f-8748-0ec621582819" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_src/ExpressionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/ExpressionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_src/FunctionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/FunctionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_src/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/Interval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/_src/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/GraphicalCalculator_jar/GraphicalCalculator.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/ExpressionPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/FunctionPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Interval.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Interval.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GraphicalCalculator/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GraphicalCalculator/Parser.class" afterDir="false" />
     </list>
     <ignored path="GraphicalCalculator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,28 +65,70 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_src/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4556">
-              <caret line="272" column="24" selection-start-line="272" selection-start-column="24" selection-end-line="272" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_src/FunctionPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="137" column="24" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
+            <state relative-caret-position="119">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_src/FunctionPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3360">
+              <caret line="50" column="47" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_src/Interval.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" column="11" selection-start-line="17" selection-start-column="10" selection-end-line="41" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_src/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="327" column="17" lean-forward="true" selection-start-line="327" selection-start-column="17" selection-end-line="327" selection-end-column="17" />
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding>
-                <element signature="e#12759#12760#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#746#747#0" expanded="true" />
+                <element signature="e#1365#1366#0" expanded="true" />
+                <element signature="e#1423#1424#0" expanded="true" />
+                <element signature="e#13782#13783#0" expanded="true" />
+                <element signature="e#13817#13818#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_src/ExpressionPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-402">
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../Desktop/ExpressionPanel copy(1).java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="411" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,6 +148,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>err</find>
+      <find>popup</find>
+      <find>GroupInput</find>
+      <find>popupPanel</find>
+      <find>mainPanel</find>
+      <find>poppiece</find>
+      <find>color</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -76,24 +163,26 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$USER_HOME$/Desktop/新建文件夹/Driver.java" />
+        <option value="$PROJECT_DIR$/_src/Parser.java" />
         <option value="$PROJECT_DIR$/_src/Driver.java" />
         <option value="$PROJECT_DIR$/_src/FunctionPanel.java" />
-        <option value="$PROJECT_DIR$/_src/Parser.java" />
+        <option value="$PROJECT_DIR$/_src/Interval.java" />
+        <option value="$PROJECT_DIR$/../../../Desktop/ExpressionPanel copy.java" />
+        <option value="$PROJECT_DIR$/_src/ExpressionPanel.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1937" />
-    <option name="height" value="1057" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-45" />
+    <option name="y" value="136" />
+    <option name="width" value="1939" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,15 +195,27 @@
               <item name="GraphicalCalculator" type="462c0819:PsiDirectoryNode" />
               <item name="_src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="GraphicalCalculator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GraphicalCalculator" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GraphicalCalculator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GraphicalCalculator" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553311937635" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553400872385" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -377,19 +478,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1549" height="845" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25386167" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26174498" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Palette&#9;" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" x="23" y="298" width="1489" height="234" id="Run" order="2" type="FLOATING" weight="0.32819074" />
+      <window_info anchor="bottom" x="23" y="546" width="1489" height="234" id="Run" order="2" type="FLOATING" weight="0.32819074" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -398,8 +498,6 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -407,6 +505,8 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Designer" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -425,10 +525,26 @@
     <entry file="file://$USER_HOME$/Desktop/新建文件夹/FunctionPanel.java" />
     <entry file="file://$USER_HOME$/Desktop/新建文件夹/Driver.java" />
     <entry file="file://$PROJECT_DIR$/../../WeChat Files/wxid_00kc62wbygr542/Files/Parser.java" />
-    <entry file="file://$PROJECT_DIR$/_src/Driver.java">
+    <entry file="file://$PROJECT_DIR$/_src/Interval.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4556">
-          <caret line="272" column="24" selection-start-line="272" selection-start-column="24" selection-end-line="272" selection-end-column="24" />
+        <state relative-caret-position="697">
+          <caret line="41" column="11" selection-start-line="17" selection-start-column="10" selection-end-line="41" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_src/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#13782#13783#0" expanded="true" />
+            <element signature="e#13817#13818#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -439,22 +555,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_src/FunctionPanel.java">
+    <entry file="file://$PROJECT_DIR$/../../../Desktop/ExpressionPanel copy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="137" column="24" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_src/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="327" column="17" lean-forward="true" selection-start-line="327" selection-start-column="17" selection-end-line="327" selection-end-column="17" />
+        <state>
+          <caret selection-end-line="410" />
           <folding>
-            <element signature="e#12759#12760#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#13401#13402#0" expanded="true" />
+            <element signature="e#13445#13446#0" expanded="true" />
+            <element signature="e#13557#13558#0" expanded="true" />
+            <element signature="e#13599#13600#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_src/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Desktop/ExpressionPanel copy(1).java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="411" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_src/ExpressionPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-402">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_src/FunctionPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3360">
+          <caret line="50" column="47" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>GraphicalCalculator:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>GraphicalCalculator</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

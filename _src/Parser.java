@@ -7,7 +7,17 @@ public class Parser {
     private String input;
     public FunctionTree functionTree;
     Parser(String input){
+
         this.input=input;
+        if (input.equals("")) {
+            /*System.out.println("Empty Input");
+            JOptionPane.showMessageDialog(null,
+                    "Empty Input",
+                    "Invalid equation",
+                    JOptionPane.ERROR_MESSAGE);*/
+            functionTree = null;
+        }
+        System.out.println(input);
     }
     private List<String> seperator = new ArrayList<>();
     String extractNumber = "";
@@ -90,121 +100,133 @@ public class Parser {
         return false;
     }
     void parse(){
-        int i = 0;
-        boolean err = false;
-        while (i < input.length()) {
-            if (Character.isDigit(input.charAt(i))) {
-                i = extractNumber(input, i);
-                seperator.add(extractNumber);
-                continue;
-            }else {
-                switch (input.charAt(i)) {
-                    case '+':
-                        seperator.add("plus");
-                        break;
-                    case '-':
-                        seperator.add("minus");
-                        break;
-                    case '*':
-                        seperator.add("multiply");
-                        break;
-                    case '/':
-                        seperator.add("divide");
-                        break;
-                    case '^':
-                        System.out.println("haha");
-                        seperator.add("power");
-                        break;
-                    case 'a':
-                        if (input.indexOf("arcsin") == i) {
-                            seperator.add("arcsin");
-                        }else if (input.indexOf("arccos") == i) {
-                            seperator.add("arccos");
-                        }else if (input.indexOf("arctan") == i) {
-                            seperator.add("arctan");
-                        }
-                        i = i + 5;
-                        break;
-                    case 'l':
-                        if (input.indexOf("log") == i) {
-                            seperator.add("log");
-                            i = i + 2;
-                        }else if (input.indexOf("ln") == i) {
-                            seperator.add("ln");
-                            i = i + 1;
-                        }else if (input.indexOf("lg") == i) {
-                            seperator.add("lg");
-                            i = i + 1;
-                        }
-                        break;
-                    case 's':
-                        if (input.indexOf("sin") == i){
-                            seperator.add("sin");
-                            i = i + 2;
-                        }else if (input.indexOf("sqrt") == i) {
-                            seperator.add("sqrt");
-                            i = i + 3;
-                        }
-                        break;
-                    case 'c':
-                        if(input.indexOf("cos") == i) {
-                            seperator.add("cos");
-                            i = i + 2;
-                        }
-                        break;
-                    case 't':
-                        if (input.indexOf("tan") == i) {
-                            seperator.add("tan");
-                            i = i + 2;
-                        }
-                        break;
-                    case 'e':
-                        seperator.add("e");
-                        break;
-                    case 'π':
-                        seperator.add("π");
-                        break;
-                    case '(':
-                        seperator.add("leftpar");
-                        break;
-                    case  ')':
-                        seperator.add("rightpar");
-                        break;
-                    case 'x':
-                        seperator.add("x");
-                        break;
-                    default:
-                        err = true;
-                }
-            }
-            i++;
-        }
+        if (input == null) {
+            functionTree = null;
 
-        printList(seperator);
-
-        if (!checkPar(seperator)) {
-            System.out.println("Unbalanced Parenthesis");
-            JOptionPane.showMessageDialog(null,
-                    "Unbalanced Parenthesis",
-                    "Invalid equation",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        else if (err) {
-            System.out.println("Invalid Input");
-            JOptionPane.showMessageDialog(null,
-                    "Unknown Characters",
-                    "Invalid equation",
-                    JOptionPane.ERROR_MESSAGE);
         }else {
-            ParseList(seperator);
-        }
-        //functionTree.print();
+            int i = 0;
+            boolean err = false;
+            while (i < input.length()) {
+                if (Character.isDigit(input.charAt(i))) {
+                    i = extractNumber(input, i);
+                    seperator.add(extractNumber);
+                    continue;
+                } else {
+                    switch (input.charAt(i)) {
+                        case '+':
+                            seperator.add("plus");
+                            break;
+                        case '-':
+                            seperator.add("minus");
+                            break;
+                        case '*':
+                            seperator.add("multiply");
+                            break;
+                        case '/':
+                            seperator.add("divide");
+                            break;
+                        case '^':
+                            System.out.println("haha");
+                            seperator.add("power");
+                            break;
+                        case 'a':
+                            if (input.indexOf("arcsin") == i) {
+                                seperator.add("arcsin");
+                            } else if (input.indexOf("arccos") == i) {
+                                seperator.add("arccos");
+                            } else if (input.indexOf("arctan") == i) {
+                                seperator.add("arctan");
+                            }
+                            i = i + 5;
+                            break;
+                        case 'l':
+                            if (input.indexOf("log") == i) {
+                                seperator.add("log");
+                                i = i + 2;
+                            } else if (input.indexOf("ln") == i) {
+                                seperator.add("lg");
+                                i = i + 1;
+                            } else if (input.indexOf("lg") == i) {
+                                seperator.add("ln");
+                                i = i + 1;
+                            }
+                            break;
+                        case 's':
+                            if (input.indexOf("sin") == i) {
+                                seperator.add("sin");
+                                i = i + 2;
+                            } else if (input.indexOf("sqrt") == i) {
+                                seperator.add("sqrt");
+                                i = i + 3;
+                            }
+                            break;
+                        case 'c':
+                            if (input.indexOf("cos") == i) {
+                                seperator.add("cos");
+                                i = i + 2;
+                            }
+                            break;
+                        case 't':
+                            if (input.indexOf("tan") == i) {
+                                seperator.add("tan");
+                                i = i + 2;
+                            }
+                            break;
+                        case 'e':
+                            seperator.add("e");
+                            break;
+                        case 'π':
+                            seperator.add("π");
+                            break;
+                        case '(':
+                            seperator.add("leftpar");
+                            break;
+                        case ')':
+                            seperator.add("rightpar");
+                            break;
+                        case 'x':
+                            seperator.add("x");
+                            break;
+                        case ' ':
+                            err = true;
+                            break;
+                        default:
+                            err = true;
+                    }
+                }
+                i++;
+            }
+
+            printList(seperator);
+
+            if (!checkPar(seperator)) {
+                /*System.out.println("Unbalanced Parenthesis");
+                JOptionPane.showMessageDialog(null,
+                        "Unbalanced Parenthesis",
+                        "Invalid equation",
+                        JOptionPane.ERROR_MESSAGE);*/
+                functionTree = null;
+                System.out.println("1");
+                return;
+            } else if (err) {
+                /*System.out.println("Invalid Input");
+                JOptionPane.showMessageDialog(null,
+                        "Unknown Characters",
+                        "Invalid equation",
+                        JOptionPane.ERROR_MESSAGE);*/
+                functionTree = null;
+                return;
+            } else {
+                ParseList(seperator);
+            }
+            //functionTree.print();
         /*Node cn1=new Node(true);
         Node cn2=new Node(1);
         Node cn3=new Node(2);
         Node cn4=Node.combineNode(cn1,cn2,Operator.plus);
         Node cn5=Node.combineNode(cn4,cn3,Operator.divide);
         functionTree=new FunctionTree(cn5);*/
+        }
     }
     void ParseList(List<String> list) {
         Stack<Operator> operators = new Stack<>();
@@ -220,11 +242,11 @@ public class Parser {
                     if (Operator.precedence(newOperator) <= Operator.precedence(operators.peek())) {
                         if (isBioperator(operators.peek()))
                         {
-                                Node rightoperand = operands.pop();
-                                Node leftoperand = operands.pop();
-                                Node newCombine = Node.combineNode(leftoperand,rightoperand,operators.pop());
-                                operands.push(newCombine);
-                                operators.push(newOperator);
+                            Node rightoperand = operands.pop();
+                            Node leftoperand = operands.pop();
+                            Node newCombine = Node.combineNode(leftoperand,rightoperand,operators.pop());
+                            operands.push(newCombine);
+                            operators.push(newOperator);
                         }
                         else
                         {
@@ -297,17 +319,15 @@ public class Parser {
             }
         }
 
-        System.out.println("here");
-
         while (operators.size() > 0) {
 
             if (isBioperator(operators.peek())) {
                 if(operands.size() < 2) {
-                    System.out.println("Invalid equation");
+                    /*System.out.println("Invalid equation");
                     JOptionPane.showMessageDialog(null,
                             "Lack of operands",
                             "Invalid equation",
-                            JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.ERROR_MESSAGE);*/
                     err = true;
                     break;
                 }else{
@@ -322,14 +342,14 @@ public class Parser {
             }
         }
         if(!err) {
-            if(operands.size()==0){
-                functionTree=null;
-            }
-            else{
+            if (operands.size() > 0) {
                 Node finalNode = operands.pop();
                 functionTree = new FunctionTree(finalNode);
             }
+        }else{
+            functionTree = null;
         }
+
     }
 
     public FunctionTree getFunctionTree() {
