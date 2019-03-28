@@ -188,7 +188,7 @@ public class FunctionPanel extends JPanel {
                             double x = start + line * seperate - seperate/2;
                             double y = fn.value(x);
                             int j = pointToPixel(new Point(x, y)).getJ();
-                            drawdot(y, new PixelPoint(line, j), Color.black, g);
+                            //drawdot(y, new PixelPoint(line, j), Color.black, g);
                         }
                         else{
                             int count = fninfo.getFunctionTrees().get(ii).size();
@@ -337,8 +337,7 @@ public class FunctionPanel extends JPanel {
         String yequal = "  y = ";
         String yvalue = Double.toString(y);
         String ytotal = yequal + yvalue;
-        //seeded, y = ...won't show up.
-        //addLabel(ytotal, p1.getI(),p1.getJ(),g);
+        addLabel(ytotal, p1.getI(),p1.getJ(),g);
     }
     public void findY(double x){
         this.findYflag = true;
