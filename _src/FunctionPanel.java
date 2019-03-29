@@ -21,6 +21,7 @@ public class FunctionPanel extends JPanel {
     double findYx = 0.0;
     boolean manualscale = false;
     boolean dialog1 = false;
+    int r = 0;
 
 
     public FunctionPanel(){
@@ -44,7 +45,7 @@ public class FunctionPanel extends JPanel {
                     if (fninfo.isPieceWise[k] == false) {
                         FunctionTree fnt = fninfo.getFunctionTrees().get(k).get(0);
                         if(fnt == null){
-                            continue;
+                            break;
                         }else{
                             //seeded, color does not change.
                             //Color color = fninfo.getColors().get(k);
@@ -188,7 +189,7 @@ public class FunctionPanel extends JPanel {
                             double x = start + line * seperate - seperate/2;
                             double y = fn.value(x);
                             int j = pointToPixel(new Point(x, y)).getJ();
-                            //drawdot(y, new PixelPoint(line, j), Color.black, g);
+                            drawdot(y, new PixelPoint(line, j), Color.black, g);
                         }
                         else{
                             int count = fninfo.getFunctionTrees().get(ii).size();
@@ -209,7 +210,7 @@ public class FunctionPanel extends JPanel {
                                 if(x > left && x < right){
                                     double y = fn.value(x);
                                     int j = pointToPixel(new Point(x, y)).getJ();
-                                    drawdot(y, new PixelPoint(line, j), Color.black, g);
+                                    //drawdot(y, new PixelPoint(line, j), Color.black, g);
                                 }
                                 else{
                                     continue;
@@ -351,7 +352,11 @@ public class FunctionPanel extends JPanel {
     //    this.color = c;
     //  }
     public void undoCursorLine(){
-        this.line = -1;
+        r++;
+        if(r%3 == 0){
+            this.line = -1;
+        }
+
     }
     public void setscale(double x){
         if(manualscale == true) {

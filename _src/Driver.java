@@ -32,7 +32,7 @@ public class Driver {
         JScrollPane GroupInput = new JScrollPane();
         final JPanel ContentPanel = new JPanel();
         ContentPanel.setLayout(new BoxLayout(ContentPanel,BoxLayout.Y_AXIS));
-        GroupInput.setPreferredSize(new Dimension(350,200));
+        GroupInput.setPreferredSize(new Dimension(350,220));
         Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
         GroupInput.setBorder(border);
         GroupInput.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

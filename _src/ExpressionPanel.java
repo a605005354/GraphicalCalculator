@@ -126,6 +126,7 @@ public class ExpressionPanel extends JPanel {
                     //System.out.println(domainLeftIn.getText());
                     left = Double.parseDouble(domainLeftIn.getText());
                     leftInf = false;
+
                 }catch (NullPointerException n){
                     leftInf = true;
                     left = 0;
@@ -137,7 +138,7 @@ public class ExpressionPanel extends JPanel {
                     rightInf = true;
                     right = 0;
                 }
-                partIntervals.add(new Interval(left,right,leftInf,rightInf));
+                partIntervals.add(0,new Interval(left,right,leftInf,rightInf));
                 Parser parser = new Parser(inputDialog.getText());
                 parser.parse();
                 partFunctrees.add(parser.getFunctionTree());
